@@ -184,7 +184,7 @@ function showEditProduct(id) {
             $('#editName').val(product.name);
             $('#editPrice').val(product.price);
             $('#editDescription').val(product.description);
-            // $('#editImage').val(product.image);
+            // $('#editImage').val(food.image);
 
             $.ajax({
                 type: 'GET',
