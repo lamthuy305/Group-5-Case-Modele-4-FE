@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Quản lý đơn đặt hàng</title>
+    <title>Quản lý ảnh   sản phẩm</title>
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback"
           rel="stylesheet">
@@ -63,7 +63,7 @@
                                    id="search"
                                    type="text">
                             <div class="input-group-append">
-                                <button class="btn btn-navbar" type="button" onclick="getAllOrder()">
+                                <button class="btn btn-navbar" type="button" onclick="getAllFood()">
                                     <i class="fas fa-search"></i>
                                 </button>
                                 <button class="btn btn-navbar" data-widget="navbar-search" type="button">
@@ -195,7 +195,7 @@
                     data-accordion="false">
 
                     <li class="nav-item">
-                        <a href="/Module-4-FE/pages/food/food.html" class="nav-link" onclick="getAllProduct()">
+                        <a href="/Module-4-FE/pages/food/food.html" class="nav-link" onclick="getAllFood()">
                             <i class="nav-icon fas fa-th"></i>
                             <p>
                                 Quản lý món ăn
@@ -245,7 +245,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Quản lý đơn đặt hàng</h1>
+                        <h1>Quản lý ảnh sản phẩm</h1>
                     </div>
                 </div>
             </div>
@@ -258,24 +258,16 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header row">
-                                <h3 class="card-title col-11">Danh sách đơn đặt hàng</h3>
+                                <h3 class="card-title col-11">Danh sách ảnh sản phẩm</h3>
+                                <button class="btn btn-primary col-1" data-target="#create-food" data-toggle="modal"
+                                        type="button" >
+                                    Thêm ảnh
+                                </button>
                             </div>
                             <!-- /.card-header -->
-                            <div class="card-body">
-                                <table class="table table-bordered table-hover">
+                            <div class="card-body row" id="list-image">
 
-                                    <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Người đặt hàng</th>
-                                        <th>Email</th>
-                                        <th>Thời gian đặt hàng</th>
-                                        <th></th>
-                                    </tr>
-                                    </thead>
-                                    <tbody id="tableProduct">
-                                    </tbody>
-                                </table>
+
                             </div>
                             <div id="displayPage"></div>
                             <!-- /.card-body -->
@@ -292,8 +284,33 @@
         <!-- /.content -->
     </div>
 
-    <!--    </div>-->
-    <div class="modal fade" id="delete-order">
+    <div class="modal fade" id="create-food">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Thêm ảnh cho sản phẩm</h4>
+                    <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="images">Ảnh sản phẩm thực tế</label>
+                        <input class="form-control" id="images" type="file" multiple="multiple">
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button class="btn btn-secondary" data-dismiss="modal" type="button">Đóng</button>
+                    <button class="btn btn-primary" onclick="createNewImage()" type="button" aria-label="Close"
+                            class="close" data-dismiss="modal">Tạo mới
+                    </button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <div class="modal fade" id="delete-image">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -356,6 +373,6 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="../../dist/js/pages/dashboard.js"></script>
 <script src="../../notification.js"></script>
-<script src="order.js"></script>
+<script src="image.js"></script>
 </body>
 </html>
