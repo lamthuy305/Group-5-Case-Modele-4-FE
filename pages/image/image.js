@@ -4,7 +4,7 @@ $(document).ready(function () {
     if (currentUser != null) {
         getAllImage(idFood);
     } else {
-        location.href = '/Module-4-FE/views/login.html'
+        location.href = '../auth/login.html'
     }
 })
 

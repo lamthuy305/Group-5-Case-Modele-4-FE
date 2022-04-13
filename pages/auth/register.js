@@ -18,7 +18,7 @@ function register() {
             'Content-Type': 'application/json'
         },
         success: function () {
-            location.href = '/Module-4-FE/views/login.html';
+            location.href = 'login.html';
         },
         error: function () {
             showErrorMessage('Xảy ra lỗi!')

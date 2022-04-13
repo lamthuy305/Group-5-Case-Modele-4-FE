@@ -71,7 +71,7 @@ $(document).ready(function () {
     if (currentUser != null) {
         getAllFood();
     } else {
-        location.href = '/Module-4-FE/views/login.html'
+        location.href = '../auth/login.html'
     }
 })
 
