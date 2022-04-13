@@ -1,4 +1,5 @@
 let idFood = new URL(location.href).searchParams.get("id");
+
 $(document).ready(function () {
     if (currentUser != null) {
         getAllImage(idFood);
