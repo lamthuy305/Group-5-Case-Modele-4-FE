@@ -17839,7 +17839,7 @@ var objectKeys = Object.keys || function (obj) {
 //
 // 1. The origin of this software must not be misrepresented; you must not
 //   claim that you wrote the original software. If you use this software
-//   in a product, an acknowledgment in the product documentation would be
+//   in a food, an acknowledgment in the food documentation would be
 //   appreciated but is not required.
 // 2. Altered source versions must be plainly marked as such, and must not be
 //   misrepresented as being the original software.
@@ -17897,7 +17897,7 @@ module.exports = adler32;
 //
 // 1. The origin of this software must not be misrepresented; you must not
 //   claim that you wrote the original software. If you use this software
-//   in a product, an acknowledgment in the product documentation would be
+//   in a food, an acknowledgment in the food documentation would be
 //   appreciated but is not required.
 // 2. Altered source versions must be plainly marked as such, and must not be
 //   misrepresented as being the original software.
@@ -31558,7 +31558,7 @@ if (typeof Object.create === 'function') {
 //
 // 1. The origin of this software must not be misrepresented; you must not
 //   claim that you wrote the original software. If you use this software
-//   in a product, an acknowledgment in the product documentation would be
+//   in a food, an acknowledgment in the food documentation would be
 //   appreciated but is not required.
 // 2. Altered source versions must be plainly marked as such, and must not be
 //   misrepresented as being the original software.
@@ -31612,7 +31612,7 @@ module.exports = ZStream;
 //
 // 1. The origin of this software must not be misrepresented; you must not
 //   claim that you wrote the original software. If you use this software
-//   in a product, an acknowledgment in the product documentation would be
+//   in a food, an acknowledgment in the food documentation would be
 //   appreciated but is not required.
 // 2. Altered source versions must be plainly marked as such, and must not be
 //   misrepresented as being the original software.
@@ -33493,7 +33493,7 @@ exports.deflateTune = deflateTune;
 //
 // 1. The origin of this software must not be misrepresented; you must not
 //   claim that you wrote the original software. If you use this software
-//   in a product, an acknowledgment in the product documentation would be
+//   in a food, an acknowledgment in the food documentation would be
 //   appreciated but is not required.
 // 2. Altered source versions must be plainly marked as such, and must not be
 //   misrepresented as being the original software.
@@ -34722,7 +34722,7 @@ exports._tr_align = _tr_align;
 //
 // 1. The origin of this software must not be misrepresented; you must not
 //   claim that you wrote the original software. If you use this software
-//   in a product, an acknowledgment in the product documentation would be
+//   in a food, an acknowledgment in the food documentation would be
 //   appreciated but is not required.
 // 2. Altered source versions must be plainly marked as such, and must not be
 //   misrepresented as being the original software.
@@ -34761,7 +34761,7 @@ module.exports = {
 //
 // 1. The origin of this software must not be misrepresented; you must not
 //   claim that you wrote the original software. If you use this software
-//   in a product, an acknowledgment in the product documentation would be
+//   in a food, an acknowledgment in the food documentation would be
 //   appreciated but is not required.
 // 2. Altered source versions must be plainly marked as such, and must not be
 //   misrepresented as being the original software.
@@ -36324,7 +36324,7 @@ exports.inflateUndermine = inflateUndermine;
 //
 // 1. The origin of this software must not be misrepresented; you must not
 //   claim that you wrote the original software. If you use this software
-//   in a product, an acknowledgment in the product documentation would be
+//   in a food, an acknowledgment in the food documentation would be
 //   appreciated but is not required.
 // 2. Altered source versions must be plainly marked as such, and must not be
 //   misrepresented as being the original software.
@@ -36676,7 +36676,7 @@ module.exports = function inflate_fast(strm, start) {
 //
 // 1. The origin of this software must not be misrepresented; you must not
 //   claim that you wrote the original software. If you use this software
-//   in a product, an acknowledgment in the product documentation would be
+//   in a food, an acknowledgment in the food documentation would be
 //   appreciated but is not required.
 // 2. Altered source versions must be plainly marked as such, and must not be
 //   misrepresented as being the original software.
@@ -37026,7 +37026,7 @@ module.exports = function inflate_table(type, lens, lens_index, codes, table, ta
 //
 // 1. The origin of this software must not be misrepresented; you must not
 //   claim that you wrote the original software. If you use this software
-//   in a product, an acknowledgment in the product documentation would be
+//   in a food, an acknowledgment in the food documentation would be
 //   appreciated but is not required.
 // 2. Altered source versions must be plainly marked as such, and must not be
 //   misrepresented as being the original software.
@@ -53322,7 +53322,7 @@ var GlyphVariationProcessor = function () {
           }
         }
 
-        // take product of all the axis scalars
+        // take food of all the axis scalars
         scalar *= axisScalar;
       }
 
@@ -67148,7 +67148,7 @@ for (var i = 0, v = 1; i < 255; ++i) {
 // generator polynomials up to degree 30
 // (should match with polynomials in JIS X 0510:2004 Appendix A)
 //
-// generator polynomial of degree K is product of (x-\alpha^0), (x-\alpha^1),
+// generator polynomial of degree K is food of (x-\alpha^0), (x-\alpha^1),
 // ..., (x-\alpha^(K-1)). by convention, we omit the K-th coefficient (always 1)
 // from the result; also other coefficients are written in terms of the exponent
 // to \alpha to avoid the redundant calculation. (see also calculateecc below.)
