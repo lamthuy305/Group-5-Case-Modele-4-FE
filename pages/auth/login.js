@@ -18,7 +18,7 @@ function login() {
         },
         success: function (currentUser) {
             localStorage.setItem('currentUser', JSON.stringify(currentUser));
-            location.href = '../product/food.html'
+            location.href = '../food/food.html'
         },
         error: function () {
             $("#error").html('Tài khoản hoặc mật khẩu không chính xác')
