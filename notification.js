@@ -171,3 +171,22 @@ function getAllCategory() {
         }
     })
 }
+
+function registerCTV() {
+    let id = currentUser.id;
+    $.ajax({
+        type: "PUT",
+        url: `http://localhost:8080/registerCTV?id=${id}`,
+        headers: {
+            'Authorization': 'Bearer ' + currentUser.token
+        },
+        success: function () {
+            showSuccessMessage('Đăng ký thành công thành CTV!');
+        },
+        error: function () {
+            showErrorMessage('Đăng ký lỗi lỗi');
+        }
+    })
+    event.preventDefault();
+
+}
