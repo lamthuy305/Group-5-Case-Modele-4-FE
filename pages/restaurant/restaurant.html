@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 
+<!-- thaotrinh.info/preview/theme-2/register.html  2021 09:01:13 GMT -->
 
 <head>
 
@@ -24,6 +25,7 @@
     <link href="../../vendor/fontawesome/css/all.min.css" rel="stylesheet">
 
     <link href="../../css/osahan.css" rel="stylesheet">
+    <script src="../../notification.js"></script>
 </head>
 
 <body class="bg-white">
@@ -35,11 +37,22 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-9 col-lg-8 mx-auto pl-5 pr-5">
-                            <h3 class="login-heading mb-4">Welcome back!</h3>
+                            <h3 class="login-heading mb-4">Mang nhà hàng của bạn đến với mọi người</h3>
                             <form id="quickForm">
                                 <div class="input-group mb-3 form-group">
-                                    <input type="email" name="email" class="form-control" id="email"
-                                           placeholder="Nhập email đăng nhập">
+                                    <input type="text" name="name" class="form-control" id="name"
+                                           placeholder="Nhập tên nhà hàng">
+                                    <div class="input-group-append">
+                                        <div class="input-group-append">
+                                            <div class="input-group-text">
+                                                <span class="fas fa-user"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group mb-3 form-group">
+                                    <input type="file" name="image" class="form-control" id="image"
+                                           placeholder="Ảnh nhà hàng">
                                     <div class="input-group-append">
                                         <div class="input-group-append">
                                             <div class="input-group-text">
@@ -50,8 +63,20 @@
                                 </div>
 
                                 <div class="input-group mb-3 form-group">
-                                    <input type="password" name="password" class="form-control" id="password"
-                                           placeholder="Nhập mật khẩu">
+                                    <input type="text" name="address" class="form-control" id="address"
+                                           placeholder="Nhập địa chỉ nhà hàng">
+                                    <div class="input-group-append">
+                                        <div class="input-group-append">
+                                            <div class="input-group-text">
+                                                <span class="fas fa-user"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="input-group mb-3 form-group">
+                                    <input type="text" name="openTime" class="form-control" id="openTime"
+                                           placeholder="Nhập giờ mở cửa">
                                     <div class="input-group-append">
                                         <div class="input-group-append">
                                             <div class="input-group-text">
@@ -60,19 +85,21 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div>
-                                    <p style="color: #ff7638" id="error"></p>
+                                <div class="input-group mb-3 form-group">
+                                    <input type="text" name="closeTime" class="form-control"
+                                           id="closeTime"
+                                           placeholder="Nhập giờ đóng cửa">
+                                    <div class="input-group-append">
+                                        <div class="input-group-append">
+                                            <div class="input-group-text">
+                                                <span class="fas fa-lock"></span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-
                                 <button type="button" class="btn btn-lg btn-outline-primary btn-block btn-login text-uppercase font-weight-bold mb-2"
-                                        id="login">Đăng nhập
+                                        id="registerCTV">Đăng ký
                                 </button>
-
-                                <div class="text-center pt-3">
-                                    Bạn chưa có tài khoản? <a class="font-weight-bold"
-                                                              href="/Module-4-FE/pages/auth/register.html">Đăng ký
-                                    ngay</a>
-                                </div>
                             </form>
                         </div>
                     </div>
@@ -98,9 +125,12 @@
 
 <script src="/dist/js/demo.js"></script>
 
+<script src="restaurant.js"></script>
+
+
 <script src="/notification.js"></script>
 
-<script src="login.js"></script>
+<script src="register.js"></script>
 
 </body>
 
