@@ -195,7 +195,7 @@
                     data-accordion="false">
 
                     <li class="nav-item">
-                        <a href="/Module-4-FE/pages/food/food.html" class="nav-link" onclick="getAllFood()">
+                        <a href="/Module-4-FE/pages/food/food.html" class="nav-link">
                             <i class="nav-icon fas fa-th"></i>
                             <p>
                                 Quản lý món ăn
@@ -203,21 +203,21 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link" onclick="getCategory()">
+                        <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-th"></i>
                             <p>
                                 Quản lý Tag
                             </p>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
-                            <p>
-                                Quản lý ảnh sản phẩm
-                            </p>
-                        </a>
-                    </li>
+                    <!--                    <li class="nav-item">-->
+                    <!--                        <a href="#" class="nav-link">-->
+                    <!--                            <i class="nav-icon fas fa-th"></i>-->
+                    <!--                            <p>-->
+                    <!--                                Quản lý ảnh sản phẩm-->
+                    <!--                            </p>-->
+                    <!--                        </a>-->
+                    <!--                    </li>-->
                     <li class="nav-item">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-th"></i>
@@ -260,7 +260,7 @@
                             <div class="card-header row">
                                 <h3 class="card-title col-11">Danh sách sản phẩm</h3>
                                 <button class="btn btn-primary col-1" data-target="#create-food" data-toggle="modal"
-                                        type="button" >
+                                        type="button" onclick="getAllCategory()">
                                     Tạo mới
                                 </button>
                             </div>
@@ -274,6 +274,7 @@
                                         <th>Tên sản phẩm</th>
                                         <th>Ảnh đại diện sản phẩm</th>
                                         <th>Mô tả sản phẩm</th>
+                                        <th>Danh mục</th>
                                         <th>Giá sản phẩm</th>
                                         <th>Giá khuyến mãi(nếu có)</th>
                                         <th>Giá dịch vụ khác(nếu có)</th>
@@ -314,26 +315,36 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="name">Tên sản phẩm</label>
-                        <input class="form-control" id="editName" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="price">Giá sản phẩm</label>
-                        <input class="form-control" id="editPrice" type="text">
+                        <input class="form-control" id="editName" placeholder="Nhập tên sản phẩm" type="text">
                     </div>
                     <div class="form-group">
                         <label for="description">Mô tả sản phẩm</label>
-                        <input class="form-control" id="editDescription" type="text">
+                        <input class="form-control" id="editDescription" placeholder="Nhập mô tả sản phẩm" type="text">
                     </div>
                     <div class="form-group">
-                        <label for="images">Ảnh sản phẩm</label>
-                        <input class="form-control" id="editImages" type="file" multiple="multiple">
+                        <label for="img">Ảnh đại diện sản phẩm</label>
+                        <p id="imgFood"></p>
+                        <input class="form-control" id="editImg" type="file">
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Giá sản phẩm</label>
+                        <input class="form-control" id="editPrice" placeholder="Nhập giá sản phẩm" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Giá khuyến mãi(nếu có)</label>
+                        <input class="form-control" id="editSalePrice" placeholder="Nhập giá sản phẩm" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Phí dịch vụ (nếu có)</label>
+                        <input class="form-control" id="editServiceFee" placeholder="Nhập giá sản phẩm" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <select class="form-control" id="editCategory"></select>
                     </div>
 
-                    <!--                    <div class="form-group">-->
-                    <!--                        <label for="category">Category</label>-->
-                    <!--                        <select class="form-control" id="editCategory"></select>-->
-                    <!--                    </div>-->
                 </div>
+
                 <div class="modal-footer justify-content-between" id="edit-form">
 
                 </div>
@@ -384,11 +395,10 @@
                         <input class="form-control" id="images" type="file" multiple="multiple">
                     </div>
 
-
-                    <!--                        <div class="form-group">-->
-                    <!--                            <label for="category">Category</label>-->
-                    <!--                            <select class="form-control" id="category"></select>-->
-                    <!--                        </div>-->
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <select class="form-control" id="category"></select>
+                    </div>
 
                 </div>
                 <div class="modal-footer justify-content-between">

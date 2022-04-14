@@ -55,13 +55,14 @@ function getAllFood(page) {
         <td>${foods[i].name}</td>
             <td><a href="/Module-4-FE/pages/image/image.html?id=${foods[i].id}" ><img src="http://localhost:8080/image/${foods[i].img}" height="140px" width="150px"></a></td>
         <td>${foods[i].description}</td>
+        <td>${foods[i].category == null ? '' : foods[i].category.name}</td>
         <td>${foods[i].price}</td>
         <td>${foods[i].salePrice}</td>
         <td>${foods[i].serviceFee}</td>
         <td>${new Date(foods[i].dayCreate).getUTCDate()}/${new Date(foods[i].dayCreate).getUTCMonth() + 1}/${new Date(foods[i].dayCreate).getUTCFullYear()}</td>
         <td>${new Date(foods[i].dayChange).getUTCDate()}/${new Date(foods[i].dayChange).getUTCMonth() + 1}/${new Date(foods[i].dayChange).getUTCFullYear()}</td>
         <td><button class="btn btn-primary" data-target="#edit-product" data-toggle="modal"
-                                        type="button" onclick="showEditProduct(${foods[i].id})"><i class="fa fa-edit"></i></button></td>
+                                        type="button" onclick="showEditFood(${foods[i].id})"><i class="fa fa-edit"></i></button></td>
         <td><button class="btn btn-danger" data-target="#delete-product" data-toggle="modal"
                                         type="button" onclick="showDeleteProduct(${foods[i].id})"><i class="fa fa-trash"></i></button></td>
         </tr>`
@@ -128,11 +129,10 @@ function getAllOrder(page) {
     event.preventDefault();
 }
 
-function getAllImage(id, page) {
-    // let q = $('#search').val();
+function getAllImage(idFood) {
     $.ajax({
         type: 'GET',
-        url: `http://localhost:8080/images?id=${id}&page=${page}`,
+        url: `http://localhost:8080/images?id=${idFood}`,
         headers: {
             'Authorization': 'Bearer ' + currentUser.token
         },
@@ -152,4 +152,22 @@ function getAllImage(id, page) {
         }
     })
     event.preventDefault();
+}
+
+function getAllCategory() {
+    $.ajax({
+        type: 'GET',
+        url: `http://localhost:8080/categories`,
+        headers: {
+            'Authorization': 'Bearer ' + currentUser.token
+        },
+        success: function (data) {
+            let categories = data.content;
+            let content = `<option>Chọn danh mục sản phẩm</option>`
+            for (let category of categories) {
+                content += `<option value="${category.id}">${category.name}</option>`
+            }
+            $('#category').html(content);
+        }
+    })
 }

@@ -1,9 +1,10 @@
 let idFood = new URL(location.href).searchParams.get("id");
+
 $(document).ready(function () {
     if (currentUser != null) {
         getAllImage(idFood);
     } else {
-        location.href = '/Module-4-FE/pages/auth/login.html'
+        location.href = '../auth/login.html'
     }
 })
 
