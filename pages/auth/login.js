@@ -1,5 +1,3 @@
-currentUser
-
 function login() {
     let email = $('#email').val();
     let password = $('#password').val();
@@ -13,8 +11,7 @@ function login() {
         data: JSON.stringify(user),
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer' + currentUser.token
+            'Content-Type': 'application/json'
         },
         success: function (currentUser) {
             localStorage.setItem('currentUser', JSON.stringify(currentUser));
