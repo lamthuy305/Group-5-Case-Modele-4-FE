@@ -1,39 +1,35 @@
 let currentUser = localStorage.getItem('currentUser');
 currentUser = JSON.parse(currentUser);// ep chuoi ve doi tuong
-function getAllFood(page) {
-    let q = $('#search').val();
+function getAllCart(page) {
+    // let q = $('#search').val();
     $.ajax({
         type: 'GET',
-        url: `http://localhost:8080/foods?q=${q}&page=${page}`,
+        url: `http://localhost:8080/carts?page=${page}`,
         headers: {
             'Authorization': 'Bearer ' + currentUser.token
         },
         success: function (data) {
             let content = ``;
-            let foods = data.content;
-            for (let i = 0; i < foods.length; i++) {
+            let carts = data.content;
+            for (let i = 0; i < carts.length; i++) {
                 content += `  
         <tr>
         <td>${i + 1}</td>
-        <td>${foods[i].name}</td>
-        <td><img src="http://localhost:8080/image/${foods[i].img}" height="140px" width="150px"></td>
-        <td>${foods[i].description}</td>
-        <td>${foods[i].price}</td>
-        <td>${foods[i].salePrice}</td>
-        <td>${foods[i].serviceFee}</td>
-        <td>${foods[i].dayCreate}</td>
-        <td>${foods[i].dayChange}</td>
-        <td><button class="btn btn-primary" data-target="#edit-product" data-toggle="modal"
-                                        type="button" onclick="showEditProduct(${foods[i].id})"><i class="fa fa-edit"></i></button></td>
-        <td><button class="btn btn-danger" data-target="#delete-product" data-toggle="modal"
-                                        type="button" onclick="showDeleteProduct(${foods[i].id})"><i class="fa fa-trash"></i></button></td>
+        <td>${carts[i].order.id}</td>
+        <td>${carts[i].food.name}</td>
+        <td>${carts[i].quantity}</td>
+     
+        <td><button class="btn btn-primary" data-target="#edit-cart" data-toggle="modal"
+                                        type="button" onclick="showEditCart(${carts[i].id})"><i class="fa fa-edit"></i></button></td>
+        <td><button class="btn btn-danger" data-target="#delete-cart" data-toggle="modal"
+                                        type="button" onclick="showDeleteCart(${carts[i].id})"><i class="fa fa-trash"></i></button></td>
         </tr>`
             }
-            $('#tableProduct').html(content);
-            $('#displayPage').html(`<button class="btn btn-primary" id="first" onclick="getAllFood(0)" style="margin-right: 10px">1</button><button class="btn btn-primary" id="backup" onclick="getAllFood(${data.pageable.pageNumber}-1)">«</button>
+            $('#tableCart').html(content);
+            $('#displayPage').html(`<button class="btn btn-primary" id="first" onclick="getAllCart(0)" style="margin-right: 10px">1</button><button class="btn btn-primary" id="backup" onclick="getAllCart(${data.pageable.pageNumber}-1)">«</button>
              <span>Trang </span><span>${data.pageable.pageNumber + 1} / ${data.totalPages}</span>
-                <button class="btn btn-primary" id="next" onclick="getAllFood(${data.pageable.pageNumber}+1)">»</button>
-                <button class="btn btn-primary" id="last" onclick="getAllFood(${data.totalPages}-1)">${data.totalPages}</button>`);
+                <button class="btn btn-primary" id="next" onclick="getAllCart(${data.pageable.pageNumber}+1)">»</button>
+                <button class="btn btn-primary" id="last" onclick="getAllCart(${data.totalPages}-1)">${data.totalPages}</button>`);
             //điều kiện bỏ nút previous
             if (data.pageable.pageNumber === 0) {
                 $("#backup").hide();
@@ -49,28 +45,22 @@ function getAllFood(page) {
     event.preventDefault();
 }
 
-function createNewProduct() {
-    let name = $('#name').val();
-    let description = $('#description').val();
-    let img = $('#img');
-    let price = $('#price').val();
-    let salePrice = $('#salePrice').val();
-    let serviceFee = $('#serviceFee').val();
-    let images = $('#images')[0].files;
-    let food = new FormData();
-    food.append('name', name);
-    food.append('description', description);
-    food.append('img', img.prop('files')[0]);
-    food.append('price', price);
-    food.append('salePrice', salePrice);
-    food.append('serviceFee', serviceFee);
-    jQuery.each(images, function (i, file) {
-        food.append('images[]', file);
-    });
+function createNewCart() {
+    let order = $('#order').val();
+    let food = $('#food').val();
+    let quantity = $('#quantity').val();
+    let cart = {
+        order : order,
+        food: food,
+        quantity: quantity
+    }
+    order.append('order', order);
+    food.append('food', food);
+    cart.append('quantity', quantity);
     $.ajax({
         type: 'POST',
-        url: 'http://localhost:8080/foods',
-        data: food,
+        url: 'http://localhost:8080/carts',
+        data: JSON.stringify(cart),
         enctype: 'multipart/form-data',
         processData: false,
         contentType: false,
@@ -78,7 +68,7 @@ function createNewProduct() {
             'Authorization': 'Bearer ' + currentUser.token
         },
         success: function () {
-            getAllFood();
+            getAllCart();
             showSuccessMessage('Tạo thành công!');
         },
         error: function () {
@@ -107,15 +97,15 @@ function createNewProduct() {
 // }
 
 
-function deleteProduct(id) {
+function deleteCart(id) {
     $.ajax({
         type: 'DELETE',
-        url: `http://localhost:8080/products/${id}`,
+        url: `http://localhost:8080/carts/${id}`,
         headers: {
             'Authorization': 'Bearer ' + currentUser.token
         },
         success: function () {
-            getAllFood(0);
+            getAllCart(0);
             showSuccessMessage('Xóa thành công!');
         },
         error: function () {
@@ -124,47 +114,42 @@ function deleteProduct(id) {
     })
 }
 
-function showDeleteProduct(id) {
+function showDeleteCart(id) {
     let content = `<button class="btn btn-secondary" data-dismiss="modal" type="button">Đóng</button>
-                    <button class="btn btn-danger" onclick="deleteProduct(${id})" type="button" aria-label="Close" class="close" data-dismiss="modal">Xóa</button>`;
+                    <button class="btn btn-danger" onclick="deleteCart(${id})" type="button" aria-label="Close" class="close" data-dismiss="modal">Xóa</button>`;
     $('#footer-delete').html(content);
 }
 
 
 $(document).ready(function () {
     if (currentUser != null) {
-        getAllFood();
+        getAllCart();
     } else {
         location.href = '/Module-4-FE/pages/auth/login.html'
     }
 })
 
-function editProduct(id) {
+function editCart(id) {
     let name = $('#editName').val();
-    let price = $('#editPrice').val();
-    let description = $('#editDescription').val();
-    let image = $('#editImage');
-    let category = $('#editCategory').val();
-    let product = new FormData();
-    product.append('name', name);
-    product.append('price', price);
-    product.append('description', description);
-    product.append('category', category);
-    product.append('image', image.prop('files')[0]);
+    let quantity = $('#editQuantity').val();
+    let cart = {
+        name: name,
+        quantity: quantity
+    };
 
     $.ajax({
-        type: 'POST',
-        url: `http://localhost:8080/products/${id}`,
-        data: product,
-        enctype: 'multipart/form-data',
-        processData: false,
-        contentType: false,
+        type: 'PUT',
+        url: `http://localhost:8080/carts/${id}`,
+        data: JSON.stringify(cart),
+
         headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + currentUser.token
         },
         success: function () {
-            getAllFood(0);
             showSuccessMessage('Sửa thành công!');
+            getAllCart(0);
         },
         error: function () {
             showErrorMessage('Sửa lỗi');
@@ -172,19 +157,18 @@ function editProduct(id) {
     })
 }
 
-function showEditProduct(id) {
+function showEditCart(id) {
 
     $.ajax({
         type: "GET",
-        url: `http://localhost:8080/products/${id}`,
+        url: `http://localhost:8080/carts/${id}`,
         headers: {
             'Authorization': 'Bearer ' + currentUser.token
         },
-        success: function (product) {
-            $('#editName').val(product.name);
-            $('#editPrice').val(product.price);
-            $('#editDescription').val(product.description);
-            // $('#editImage').val(product.image);
+        success: function (cart) {
+            $('#editName').val(cart.name);
+            $('#editQuantiy').val(cart.quantity);
+            // $('#editImage').val(food.image);
 
             $.ajax({
                 type: 'GET',
@@ -195,8 +179,8 @@ function showEditProduct(id) {
                 success: function (categories) {
                     categories = categories.content;
                     let content = '';
-                    if (product.category != null) {
-                        content = `<option value="${product.category.id}">${product.category.name}</option>`;
+                    if (cart.category != null) {
+                        content = `<option value="${cart.category.id}">${cart.category.name}</option>`;
                     } else {
                         content = `<option>Chọn danh mục sản phẩm</option>`;
                     }

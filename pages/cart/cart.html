@@ -267,19 +267,13 @@
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <table class="table table-bordered table-hover">
-
                                     <thead>
                                     <tr>
-                                        <th>#</th>
-                                        <th>Tên sản phẩm</th>
-                                        <th>Ảnh sản phẩm</th>
-                                        <th>Mô tả sản phẩm</th>
-                                        <th>Giá sản phẩm</th>
-                                        <th>Giá khuyến mãi(nếu có)</th>
-                                        <th>Giá dịch vụ khác(nếu có)</th>
-                                        <th>Ngày tạo mới</th>
-                                        <th>Ngày thay đổi cuối cùng</th>
-                                        <th colspan="2"></th>
+                                        <th>Mã đơn hàng</th>
+                                        <th>Order_id</th>
+                                        <th>Food_id</th>
+                                        <th>Số lượng</th>
+                                        <th colspan="2">Thao tác</th>
                                     </tr>
                                     </thead>
                                     <tbody id="tableProduct">
@@ -313,20 +307,12 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="name">Tên sản phẩm</label>
+                <label for="order">Tên sản phẩm</label>
                         <input class="form-control" id="editName" type="text">
                     </div>
                     <div class="form-group">
-                        <label for="price">Giá sản phẩm</label>
-                        <input class="form-control" id="editPrice" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="description">Mô tả sản phẩm</label>
-                        <input class="form-control" id="editDescription" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="images">Ảnh sản phẩm</label>
-                        <input class="form-control" id="editImages" type="file" multiple="multiple">
+                        <label for="quantity">Số lượng</label>
+                        <input class="form-control" id="editQuantity" type="text">
                     </div>
 
                     <!--                    <div class="form-group">-->
@@ -355,33 +341,16 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="name">Tên sản phẩm</label>
-                        <input class="form-control" id="name" placeholder="Nhập tên sản phẩm" type="text">
+                        <label for="order">Order_id</label>
+                        <input class="form-control" id="order" placeholder="Nhập order id" type="text">
                     </div>
                     <div class="form-group">
-                        <label for="description">Mô tả sản phẩm</label>
-                        <input class="form-control" id="description" placeholder="Nhập mô tả sản phẩm" type="text">
+                        <label for="food">Food_id</label>
+                        <input class="form-control" id="food" placeholder="Nhập food id" type="text">
                     </div>
                     <div class="form-group">
-                        <label for="img">Ảnh đại diện sản phẩm</label>
-                        <input class="form-control" id="img" type="file">
-                    </div>
-                    <div class="form-group">
-                        <label for="price">Giá sản phẩm</label>
-                        <input class="form-control" id="price" placeholder="Nhập giá sản phẩm" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="price">Giá khuyến mãi(nếu có)</label>
-                        <input class="form-control" id="salePrice" placeholder="Nhập giá sản phẩm" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="price">Phí dịch vụ (nếu có)</label>
-                        <input class="form-control" id="serviceFee" placeholder="Nhập giá sản phẩm" type="text">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="images">Ảnh sản phẩm thực tế</label>
-                        <input class="form-control" id="images" type="file" multiple="multiple">
+                        <label for="quantity">Số lượng</label>
+                        <input class="form-control" id="quantity" placeholder="Nhập mô tả sản phẩm" type="text">
                     </div>
 
 
@@ -393,7 +362,7 @@
                 </div>
                 <div class="modal-footer justify-content-between">
                     <button class="btn btn-secondary" data-dismiss="modal" type="button">Đóng</button>
-                    <button class="btn btn-primary" onclick="createNewProduct()" type="button" aria-label="Close"
+                    <button class="btn btn-primary" onclick="createNewCart()" type="button" aria-label="Close"
                             class="close" data-dismiss="modal">Tạo mới
                     </button>
                 </div>
