@@ -68,9 +68,9 @@ function getAllFood(page) {
         </tr>`
             }
             $('#tableProduct').html(content);
-            $('#displayPage').html(`<button class="btn btn-primary" id="first" onclick="getAllFood(0)" style="margin-right: 10px">1</button><button class="btn btn-primary" id="backup" onclick="getAllFood(${data.pageable.pageNumber}-1)">«</button>
+            $('#displayPage').html(`<button class="btn btn-primary" id="first" onclick="getAllFood(0)" style="margin-right: 10px">1</button><button class="btn btn-primary" id="backup" onclick="getAllFood(${data.pageable.pageNumber}-1)"><</button>
              <span>Trang </span><span>${data.pageable.pageNumber + 1} / ${data.totalPages}</span>
-                <button class="btn btn-primary" id="next" onclick="getAllFood(${data.pageable.pageNumber}+1)">»</button>
+                <button class="btn btn-primary" id="next" onclick="getAllFood(${data.pageable.pageNumber}+1)">></button>
                 <button class="btn btn-primary" id="last" onclick="getAllFood(${data.totalPages}-1)">${data.totalPages}</button>`);
             //điều kiện bỏ nút previous
             if (data.pageable.pageNumber === 0) {
@@ -110,9 +110,9 @@ function getAllOrder(page) {
         </tr>`
             }
             $('#tableProduct').html(content);
-            $('#displayPage').html(`<button class="btn btn-primary" id="first" onclick="getAllOrder(0)" style="margin-right: 10px">1</button><button class="btn btn-primary" id="backup" onclick="getAllOrder(${data.pageable.pageNumber}-1)">«</button>
+            $('#displayPage').html(`<button class="btn btn-primary" id="first" onclick="getAllOrder(0)" style="margin-right: 10px">1</button><button class="btn btn-primary" id="backup" onclick="getAllOrder(${data.pageable.pageNumber}-1)"><</button>
              <span>Trang </span><span>${data.pageable.pageNumber + 1} / ${data.totalPages}</span>
-                <button class="btn btn-primary" id="next" onclick="getAllOrder(${data.pageable.pageNumber}+1)">»</button>
+                <button class="btn btn-primary" id="next" onclick="getAllOrder(${data.pageable.pageNumber}+1)">></button>
                 <button class="btn btn-primary" id="last" onclick="getAllOrder(${data.totalPages}-1)">${data.totalPages}</button>`);
             //điều kiện bỏ nút previous
             if (data.pageable.pageNumber === 0) {

@@ -23,9 +23,9 @@ function getAllTag(page) {
         </tr>`
             }
             $('#tableProduct').html(content);
-            $('#displayPage').html(`<button class="btn btn-primary" id="first" onclick="getAllTag(0)" style="margin-right: 10px">1</button><button class="btn btn-primary" id="backup" onclick="getAllTag(${data.pageable.pageNumber}-1)">«</button>
+            $('#displayPage').html(`<button class="btn btn-primary" id="first" onclick="getAllTag(0)" style="margin-right: 10px">1</button><button class="btn btn-primary" id="backup" onclick="getAllTag(${data.pageable.pageNumber}-1)"><</button>
              <span>Trang </span><span>${data.pageable.pageNumber + 1} / ${data.totalPages}</span>
-                <button class="btn btn-primary" id="next" onclick="getAllTag(${data.pageable.pageNumber}+1)">»</button>
+                <button class="btn btn-primary" id="next" onclick="getAllTag(${data.pageable.pageNumber}+1)">></button>
                 <button class="btn btn-primary" id="last" onclick="getAllTag(${data.totalPages}-1)">${data.totalPages}</button>`);
             //điều kiện bỏ nút previous
             if (data.pageable.pageNumber === 0) {
