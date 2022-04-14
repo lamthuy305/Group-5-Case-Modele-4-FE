@@ -49,7 +49,7 @@ $(document).ready(function () {
 
         messages: {
             name: {
-                required: "Nhập username",
+                required: "Nhập tên của bạn",
             },
             email: {
                 required: "Nhập email",
