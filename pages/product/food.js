@@ -126,7 +126,7 @@ function deleteProduct(id) {
 
 function showDeleteProduct(id) {
     let content = `<button class="btn btn-secondary" data-dismiss="modal" type="button">Đóng</button>
-                    <button class="btn btn-danger" onclick="deleteProduct(${id})" type="button" aria-label="Close" class="close" data-dismiss="modal">Xóa</button>`;
+                   <button class="btn btn-danger" onclick="deleteProduct(${id})" type="button" aria-label="Close" class="close" data-dismiss="modal">Xóa</button>`;
     $('#footer-delete').html(content);
 }
 
