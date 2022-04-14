@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Quản lý sản phẩm</title>
+    <title>Quản lý đơn đặt hàng</title>
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback"
           rel="stylesheet">
@@ -40,7 +40,7 @@
                 <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a class="nav-link" href="../../index.html">Home</a>
+                <a class="nav-link" href="../../views/index.html">Home</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
                 <a class="nav-link" href="#">Contact</a>
@@ -63,7 +63,7 @@
                                    id="search"
                                    type="text">
                             <div class="input-group-append">
-                                <button class="btn btn-navbar" type="button" onclick="getAllFood()">
+                                <button class="btn btn-navbar" type="button" onclick="getAllOrder()">
                                     <i class="fas fa-search"></i>
                                 </button>
                                 <button class="btn btn-navbar" data-widget="navbar-search" type="button">
@@ -195,7 +195,7 @@
                     data-accordion="false">
 
                     <li class="nav-item">
-                        <a href="#" class="nav-link" onclick="getAllFood()">
+                        <a href="/Module-4-FE/pages/food/food.html" class="nav-link">
                             <i class="nav-icon fas fa-th"></i>
                             <p>
                                 Quản lý món ăn
@@ -203,21 +203,14 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="/Module-4-FE/pages/tag/tag.html" class="nav-link" onclick="getAllTag()">
+                        <a href="#" class="nav-link" onclick="getCategory()">
                             <i class="nav-icon fas fa-th"></i>
                             <p>
                                 Quản lý Tag
                             </p>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
-                            <p>
-                                Quản lý ảnh sản phẩm
-                            </p>
-                        </a>
-                    </li>
+
                     <li class="nav-item">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-th"></i>
@@ -227,7 +220,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="/Module-4-FE/pages/order/order.html" class="nav-link">
                             <i class="nav-icon fas fa-th"></i>
                             <p>
                                 Quản lý đơn đặt hàng
@@ -245,7 +238,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Quản lý món ăn</h1>
+                        <h1>Quản lý đơn đặt hàng</h1>
                     </div>
                 </div>
             </div>
@@ -258,11 +251,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header row">
-                                <h3 class="card-title col-11">Quản lý sản phẩm</h3>
-                                <button class="btn btn-primary col-1" data-target="#create-food" data-toggle="modal"
-                                        type="button" >
-                                    Tạo mới
-                                </button>
+                                <h3 class="card-title col-11">Danh sách đơn đặt hàng</h3>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
@@ -271,15 +260,10 @@
                                     <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Tên sản phẩm</th>
-                                        <th>Ảnh sản phẩm</th>
-                                        <th>Mô tả sản phẩm</th>
-                                        <th>Giá sản phẩm</th>
-                                        <th>Giá khuyến mãi(nếu có)</th>
-                                        <th>Giá dịch vụ khác(nếu có)</th>
-                                        <th>Ngày tạo mới</th>
-                                        <th>Ngày thay đổi cuối cùng</th>
-                                        <th colspan="2"></th>
+                                        <th>Người đặt hàng</th>
+                                        <th>Email</th>
+                                        <th>Thời gian đặt hàng</th>
+                                        <th></th>
                                     </tr>
                                     </thead>
                                     <tbody id="tableProduct">
@@ -301,108 +285,8 @@
         <!-- /.content -->
     </div>
 
-    <div class="modal fade" id="edit-product">
-
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Chỉnh sửa sản phẩm</h4>
-                    <button aria-label="Close" class="close" data-dismiss="modal" type="button">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="name">Tên sản phẩm</label>
-                        <input class="form-control" id="editName" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="price">Giá sản phẩm</label>
-                        <input class="form-control" id="editPrice" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="description">Mô tả sản phẩm</label>
-                        <input class="form-control" id="editDescription" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="images">Ảnh sản phẩm</label>
-                        <input class="form-control" id="editImages" type="file" multiple="multiple">
-                    </div>
-
-                    <!--                    <div class="form-group">-->
-                    <!--                        <label for="category">Category</label>-->
-                    <!--                        <select class="form-control" id="editCategory"></select>-->
-                    <!--                    </div>-->
-                </div>
-                <div class="modal-footer justify-content-between" id="edit-form">
-
-                </div>
-            </div>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-    </div>
-
-
-    <div class="modal fade" id="create-food">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Tạo mới sản phẩm</h4>
-                    <button aria-label="Close" class="close" data-dismiss="modal" type="button">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="name">Tên sản phẩm</label>
-                        <input class="form-control" id="name" placeholder="Nhập tên sản phẩm" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="description">Mô tả sản phẩm</label>
-                        <input class="form-control" id="description" placeholder="Nhập mô tả sản phẩm" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="img">Ảnh đại diện sản phẩm</label>
-                        <input class="form-control" id="img" type="file">
-                    </div>
-                    <div class="form-group">
-                        <label for="price">Giá sản phẩm</label>
-                        <input class="form-control" id="price" placeholder="Nhập giá sản phẩm" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="price">Giá khuyến mãi(nếu có)</label>
-                        <input class="form-control" id="salePrice" placeholder="Nhập giá sản phẩm" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="price">Phí dịch vụ (nếu có)</label>
-                        <input class="form-control" id="serviceFee" placeholder="Nhập giá sản phẩm" type="text">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="images">Ảnh sản phẩm thực tế</label>
-                        <input class="form-control" id="images" type="file" multiple="multiple">
-                    </div>
-
-
-                    <!--                        <div class="form-group">-->
-                    <!--                            <label for="category">Category</label>-->
-                    <!--                            <select class="form-control" id="category"></select>-->
-                    <!--                        </div>-->
-
-                </div>
-                <div class="modal-footer justify-content-between">
-                    <button class="btn btn-secondary" data-dismiss="modal" type="button">Đóng</button>
-                    <button class="btn btn-primary" onclick="createNewProduct()" type="button" aria-label="Close"
-                            class="close" data-dismiss="modal">Tạo mới
-                    </button>
-                </div>
-            </div>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-    </div>
-    <div class="modal fade" id="delete-product">
+    <!--    </div>-->
+    <div class="modal fade" id="delete-order">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -465,6 +349,6 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="../../dist/js/pages/dashboard.js"></script>
 <script src="../../notification.js"></script>
-<script src="food.js"></script>
+<script src="order.js"></script>
 </body>
 </html>
