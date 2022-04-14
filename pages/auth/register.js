@@ -3,16 +3,19 @@ function register() {
     let email = $('#email').val();
     let password = $('#password').val();
     let confirmPassword = $('#comfirmPassword').val();
-    let user = {
+    let signUpForm = {
         name: name,
         email: email,
-        password: password,
-        confirmPassword: confirmPassword
+        passwordForm: {
+            password: password,
+            confirmPassword: confirmPassword
+        }
     }
+
     $.ajax({
         type: 'POST',
         url: 'http://localhost:8080/register',
-        data: JSON.stringify(user),
+        data: JSON.stringify(signUpForm),
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
@@ -21,7 +24,7 @@ function register() {
             location.href = 'login.html';
         },
         error: function () {
-            showErrorMessage('Xảy ra lỗi!')
+            $('#error').html('Email đã tồn tại')
         }
     })
     event.preventDefault();
@@ -36,6 +39,7 @@ $(document).ready(function () {
             },
             email: {
                 required: true,
+                valid_email: true,
             },
             password: {
                 required: true,
@@ -53,6 +57,7 @@ $(document).ready(function () {
             },
             email: {
                 required: "Nhập email",
+                valid_email: "Email không hợp lệ",
             },
             password: {
                 required: "Nhập password",
@@ -86,6 +91,13 @@ jQuery.validator.addMethod('valid_password', function (value) {
     var regex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
     return value.trim().match(regex);
 });
+
+jQuery.validator.addMethod('valid_email', function (value) {
+    var regex = /[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[A-Za-z]{2,6}/;
+    return value.trim().match(regex);
+});
+
+
 
 jQuery.validator.addMethod('confirm_password', function () {
     let password = $('#password').val();
