@@ -18,12 +18,13 @@ function login() {
         },
         success: function (currentUser) {
             localStorage.setItem('currentUser', JSON.stringify(currentUser));
-            location.href = '../food/food.html'
+            location.href = '/Module-4-FE/pages/food/food.html'
         },
         error: function () {
             $("#error").html('Tài khoản hoặc mật khẩu không chính xác')
         }
     });
+    event.preventDefault();
 }
 
 $(document).ready(function () {
@@ -40,7 +41,7 @@ $(document).ready(function () {
 
         messages: {
             email: {
-                required: "Nhập username",
+                required: "Nhập email đăng nhập",
             },
             password: {
                 required: "Nhập password",
