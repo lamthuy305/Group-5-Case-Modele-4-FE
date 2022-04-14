@@ -259,24 +259,20 @@
                         <div class="card">
                             <div class="card-header row">
                                 <h3 class="card-title col-11">Giỏ hàng</h3>
-                                <button class="btn btn-primary col-1" data-target="#create-food" data-toggle="modal"
-                                        type="button" >
-                                    Tạo mới
-                                </button>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <table class="table table-bordered table-hover">
                                     <thead>
                                     <tr>
-                                        <th>Mã đơn hàng</th>
-                                        <th>Order_id</th>
-                                        <th>Food_id</th>
-                                        <th>Số lượng</th>
-                                        <th colspan="2">Thao tác</th>
+                                        <th style="text-align: center">#</th>
+                                        <th style="text-align: center">Mã đơn hàng</th>
+                                        <th style="text-align: center">Tên món ăn</th>
+                                        <th style="text-align: center">Số lượng</th>
+                                        <th colspan="2" style="text-align: center">Thao tác</th>
                                     </tr>
                                     </thead>
-                                    <tbody id="tableProduct">
+                                    <tbody id="tableCart">
                                     </tbody>
                                 </table>
                             </div>
@@ -295,83 +291,7 @@
         <!-- /.content -->
     </div>
 
-    <div class="modal fade" id="edit-product">
-
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Chỉnh sửa sản phẩm</h4>
-                    <button aria-label="Close" class="close" data-dismiss="modal" type="button">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                <label for="order">Tên sản phẩm</label>
-                        <input class="form-control" id="editName" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="quantity">Số lượng</label>
-                        <input class="form-control" id="editQuantity" type="text">
-                    </div>
-
-                    <!--                    <div class="form-group">-->
-                    <!--                        <label for="category">Category</label>-->
-                    <!--                        <select class="form-control" id="editCategory"></select>-->
-                    <!--                    </div>-->
-                </div>
-                <div class="modal-footer justify-content-between" id="edit-form">
-
-                </div>
-            </div>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-    </div>
-
-
-    <div class="modal fade" id="create-food">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Tạo mới sản phẩm</h4>
-                    <button aria-label="Close" class="close" data-dismiss="modal" type="button">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="order">Order_id</label>
-                        <input class="form-control" id="order" placeholder="Nhập order id" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="food">Food_id</label>
-                        <input class="form-control" id="food" placeholder="Nhập food id" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="quantity">Số lượng</label>
-                        <input class="form-control" id="quantity" placeholder="Nhập mô tả sản phẩm" type="text">
-                    </div>
-
-
-                    <!--                        <div class="form-group">-->
-                    <!--                            <label for="category">Category</label>-->
-                    <!--                            <select class="form-control" id="category"></select>-->
-                    <!--                        </div>-->
-
-                </div>
-                <div class="modal-footer justify-content-between">
-                    <button class="btn btn-secondary" data-dismiss="modal" type="button">Đóng</button>
-                    <button class="btn btn-primary" onclick="createNewCart()" type="button" aria-label="Close"
-                            class="close" data-dismiss="modal">Tạo mới
-                    </button>
-                </div>
-            </div>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-    </div>
-    <div class="modal fade" id="delete-product">
+    <div class="modal fade" id="delete-cart">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
