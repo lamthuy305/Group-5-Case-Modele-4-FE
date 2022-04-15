@@ -161,8 +161,8 @@ function getAllCategory() {
         headers: {
             'Authorization': 'Bearer ' + currentUser.token
         },
-        success: function (data) {
-            let categories = data.content;
+        success: function (categories) {
+            // let categories = data.content;
             let content = `<option>Chọn danh mục sản phẩm</option>`
             for (let category of categories) {
                 content += `<option value="${category.id}">${category.name}</option>`
@@ -170,5 +170,34 @@ function getAllCategory() {
             $('#category').html(content);
         }
     })
+}
+
+function getAllTag() {
+    $.ajax({
+        type: 'GET',
+        url: `http://localhost:8080/tags`,
+        headers: {
+            'Authorization': 'Bearer ' + currentUser.token
+        },
+        success: function (data) {
+            let tags = data.content;
+            let content = ``
+            for (let i = 0; i < tags.length; i++) {
+                let a = i + 1;
+                let id = "tag" + a;
+                let name = tags[i].name;
+                let value = tags[i].id;
+                content += `
+                        <div class="form-check col-4">
+                            <input class="form-check-input" type="checkbox" name="tag" value="${value}">
+                            <label class="form-check-label">
+                                ${name}
+                            </label>
+                        </div>`
+            }
+            $('#checkTag').html(content);
+        }
+    })
+
 }
 

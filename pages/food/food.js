@@ -1,6 +1,7 @@
 let idFood = new URL(location.href).searchParams.get("id");
 
 function createNewProduct() {
+    let food = new FormData();
     let name = $('#name').val();
     let description = $('#description').val();
     let img = $('#img');
@@ -10,7 +11,18 @@ function createNewProduct() {
     let images = $('#images')[0].files;
     let user = currentUser.id;
     let category = $('#category').val();
-    let food = new FormData();
+
+    let checkbox = document.getElementsByName('tag');
+    let tag = '';
+    for (let i = 0; i < checkbox.length; i++) {
+        if (checkbox[i].checked === true) {
+            tag += checkbox[i].value;
+            if (i !== checkbox.length - 1) {
+                tag += ',';
+            }
+        }
+    }
+
     food.append('name', name);
     food.append('description', description);
     food.append('img', img.prop('files')[0]);
@@ -22,6 +34,8 @@ function createNewProduct() {
     });
     food.append('user', user);
     food.append('category', category);
+    food.append('tags', tag);
+    // food.append('tag', tag)
     $.ajax({
         type: 'POST',
         url: 'http://localhost:8080/foods',
@@ -139,8 +153,7 @@ function showEditFood(id) {
                 headers: {
                     'Authorization': 'Bearer ' + currentUser.token
                 },
-                success: function (data) {
-                    categories = data.content;
+                success: function (categories) {
                     let content = '';
                     if (food.category != null) {
                         content = `<option value="${food.category.id}">${food.category.name}</option>`;

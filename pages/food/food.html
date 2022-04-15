@@ -53,7 +53,7 @@
 
             <li class="nav-item d-none d-sm-inline-block">
                 <a class="nav-link" href="/Module-4-FE/pages/restaurant/restaurant.html"
-                   >Đăng ký CTV</a>
+                >Đăng ký CTV</a>
             </li>
         </ul>
 
@@ -269,7 +269,7 @@
                             <div class="card-header row">
                                 <h3 class="card-title col-11">Danh sách sản phẩm</h3>
                                 <button class="btn btn-primary col-1" data-target="#create-food" data-toggle="modal"
-                                        type="button" onclick="getAllCategory()">
+                                        type="button" onclick="getAllCategory(); getAllTag()">
                                     Tạo mới
                                 </button>
                             </div>
@@ -301,8 +301,6 @@
                                 <h3 class="card-title col-9"></h3>
                                 <div id="displayPage" class="col-3"></div>
                             </div>
-
-
 
 
                             <!-- /.card-body -->
@@ -416,6 +414,16 @@
                         <label for="category">Category</label>
                         <select class="form-control" id="category"></select>
                     </div>
+
+                    <label for="images">Check tag</label>
+
+                    <div class="card-body row" id="checkTag">
+
+
+                    </div>
+
+
+
 
                 </div>
                 <div class="modal-footer justify-content-between">
