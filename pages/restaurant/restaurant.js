@@ -1,85 +1,89 @@
-function registerCTV() {
+$(document).ready(function () {
+    if (currentUser != null) {
+        getRestaurant();
+    } else {
+        location.href = '../auth/login.html'
+    }
+})
+
+function getRestaurant() {
     let id = currentUser.id;
+    $.ajax({
+        type: 'GET',
+        url: `http://localhost:8080/restaurants/${id}`,
+        headers: {
+            'Authorization': 'Bearer ' + currentUser.token
+        },
+        success: function (restaurant) {
+            let content = ``;
+            content += `  
+        <tr>
+        <td>${restaurant.name}</td>
+        <td><img src="http://localhost:8080/image/${restaurant.img}" height="140px" width="150px"></a></td>
+        <td>${restaurant.address}</td>
+        <td>${new Date(restaurant.openTime).getUTCDate()}/${new Date(restaurant.openTime).getUTCMonth() + 1}/${new Date(restaurant.openTime).getUTCFullYear()}</td>
+        <td>${new Date(restaurant.closeTime).getUTCDate()}/${new Date(restaurant.closeTime).getUTCMonth() + 1}/${new Date(restaurant.closeTime).getUTCFullYear()}</td>`
+            $('#tableRestaurant').html(content);
+        },
+    })
+}
+
+function editFormRestaurant() {
+    let id = currentUser.id;
+    $.ajax({
+        type: 'GET',
+        url: `http://localhost:8080/restaurants/${id}`,
+        headers: {
+            'Authorization': 'Bearer ' + currentUser.token
+        },
+        success: function (restaurant) {
+            $('#name').val(restaurant.name);
+            $('#imgRestaurant').html(`<img src="http://localhost:8080/image/${restaurant.img}" height="140px" width="150px">`);
+            $('#address').val(restaurant.address);
+            $('#openTime').val(restaurant.openTime);
+            $('#closeTime').val(restaurant.closeTime);
+
+            let content = `<button class="btn btn-secondary" data-dismiss="modal" type="button">Đóng</button>
+                    <button class="btn btn-primary" onclick="editRestaurant(${id})" type="button" aria-label="Close" class="close" data-dismiss="modal">Chỉnh sửa</button>`;
+            $('#edit-form').html(content);
+        }
+    })
+}
+
+function editRestaurant(id) {
     let name = $("#name").val();
     let address = $("#address").val();
     let openTime = $("#openTime").val();
     let closeTime = $("#closeTime").val();
-    let img = $('#image');
+    let img = $('#img')[0].files;
     let restaurant = new FormData();
-    restaurant.append('name',name);
-    restaurant.append('address',address);
-    restaurant.append('openTime',openTime);
+    restaurant.append('name', name);
+    restaurant.append('address', address);
+    restaurant.append('openTime', openTime);
     restaurant.append('closeTime', closeTime);
-    restaurant.append('img',img.prop('files')[0]);
+    if (img.length != 0) {
+        jQuery.each(img, function (i, file) {
+            restaurant.append('img[]', file);
+        });
+    }
     $.ajax({
         type: "POST",
-        url: `http://localhost:8080/registerCTV?id=${id}`,
-        data:restaurant,
+        url: `http://localhost:8080/restaurants/${id}`,
+        data: restaurant,
         enctype: 'multipart/form-data',
         processData: false,
-        contentType:false,
+        contentType: false,
         headers: {
             'Authorization': 'Bearer ' + currentUser.token
         },
         success: function () {
-            showSuccessMessage('Đăng ký thành công thành CTV!');
-            location.href="/pages/food/food.html";
+            getRestaurant();
+            showSuccessMessage('Sửa thành công!');
         },
         error: function () {
-            showErrorMessage('Đăng ký lỗi');
+            showErrorMessage('Sửa lỗi');
         }
     })
     event.preventDefault();
 
 }
-
-
-$(document).ready(function () {
-    $('#quickForm').validate({
-        rules: {
-            name: {
-                required: true,
-            },
-            address: {
-                required: true,
-            },
-            openTime:{
-                required:true,
-            },
-            closeTime: {
-                required:true,
-            }
-        },
-
-        messages: {
-            name: {
-                required: "vui lòng nhập tên",
-            },
-            address: {
-                required: "vui lòng nhập địa chỉ",
-            },
-            openTime:{
-                required:"vui lòng nhập giờ mở bán",
-            },
-            closeTime: {
-                required:"vui lòng nhập giờ đóng cửa",
-            }
-        },
-        errorElement: 'span',
-        errorPlacement: function (error, element) {
-            error.addClass('invalid-feedback');
-            element.closest('.form-group').append(error);
-        },
-        highlight: function (element, errorClass, validClass) {
-            $(element).addClass('is-invalid');
-        },
-        unhighlight: function (element, errorClass, validClass) {
-            $(element).removeClass('is-invalid');
-        }
-    });
-    $("#registerCTV").click(function () {
-        if ($("#quickForm").valid()) {
-            registerCTV();
-        }
-    });
-});

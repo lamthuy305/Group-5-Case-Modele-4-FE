@@ -59,11 +59,11 @@
                 <div class="navbar-search-block">
                     <form class="form-inline">
                         <div class="input-group input-group-sm">
-                            <input aria-label="Search" class="form-control form-control-navbar" placeholder="Tìm kiếm"
-                                   id="search"
-                                   type="text">
+                            <input aria-label="Search" class="form-control form-control-navbar"
+                                   placeholder="Tìm kiếm theo tên category"
+                                   id="search" type="text">
                             <div class="input-group-append">
-                                <button class="btn btn-navbar" type="button" onclick="getAllFood()">
+                                <button class="btn btn-navbar" type="button" onclick="getAllCategory()">
                                     <i class="fas fa-search"></i>
                                 </button>
                                 <button class="btn btn-navbar" data-widget="navbar-search" type="button">
@@ -195,42 +195,55 @@
                     data-accordion="false">
 
                     <li class="nav-item">
-                        <a href="#" class="nav-link" onclick="getAllFood()">
+                        <a href="/Module-4-FE/pages/restaurant/restaurant.html" class="nav-link">
+                            <i class="nav-icon fas fa-th"></i>
+                            <p>
+                                Quản lý cửa hàng
+                            </p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="/Module-4-FE/pages/food/food.html" class="nav-link">
                             <i class="nav-icon fas fa-th"></i>
                             <p>
                                 Quản lý món ăn
                             </p>
                         </a>
                     </li>
+
                     <li class="nav-item">
-                        <a href="#" class="nav-link" onclick="getCategory()">
+                        <a href="/Module-4-FE/pages/category/category.html" class="nav-link">
+                            <i class="nav-icon fas fa-th"></i>
+                            <p>
+                                Quản lý category
+                            </p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="/Module-4-FE/pages/tag/tag.html" class="nav-link">
                             <i class="nav-icon fas fa-th"></i>
                             <p>
                                 Quản lý Tag
                             </p>
                         </a>
                     </li>
+
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="/Module-4-FE/pages/order/order.html" class="nav-link">
                             <i class="nav-icon fas fa-th"></i>
                             <p>
-                                Quản lý ảnh sản phẩm
+                                Quản lý đơn đặt hàng
                             </p>
                         </a>
                     </li>
+
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="/Module-4-FE/pages/user/user.html" class="nav-link">
                             <i class="nav-icon fas fa-th"></i>
                             <p>
                                 Quản lý người dùng
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
-                            <p>
-                                Quản lý giỏ hàng
                             </p>
                         </a>
                     </li>
@@ -397,7 +410,6 @@
         </div>
         <!-- /.modal-dialog -->
     </div>
-
 
 
     <!-- Main content -->

@@ -1,8 +1,9 @@
-function getAllCart(page) {
-    // let q = $('#search').val();
+let idOrder = new URL(location.href).searchParams.get("id");
+
+function getAllCart() {
     $.ajax({
         type: 'GET',
-        url: `http://localhost:8080/carts?page=${page}`,
+        url: `http://localhost:8080/carts?id=${idOrder}`,
         headers: {
             'Authorization': 'Bearer ' + currentUser.token
         },
@@ -23,20 +24,6 @@ function getAllCart(page) {
         </tr>`
             }
             $('#tableCart').html(content);
-            $('#displayPage').html(`<button class="btn btn-primary" id="first" onclick="getAllCart(0)" style="margin-right: 10px">1</button><button class="btn btn-primary" id="backup" onclick="getAllCart(${data.pageable.pageNumber}-1)">«</button>
-             <span>Trang </span><span>${data.pageable.pageNumber + 1} / ${data.totalPages}</span>
-                <button class="btn btn-primary" id="next" onclick="getAllCart(${data.pageable.pageNumber}+1)">»</button>
-                <button class="btn btn-primary" id="last" onclick="getAllCart(${data.totalPages}-1)">${data.totalPages}</button>`);
-            //điều kiện bỏ nút previous
-            if (data.pageable.pageNumber === 0) {
-                $("#backup").hide();
-                $("#first").hide();
-            }
-            //điều kiện bỏ nút next
-            if (data.pageable.pageNumber + 1 === data.totalPages) {
-                $("#next").hide();
-                $("#last").hide();
-            }
         }
     })
     event.preventDefault();

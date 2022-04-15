@@ -49,12 +49,7 @@
                 <a class="nav-link" href="/Module-4-FE/pages/auth/login.html"
                    onclick="logout()">Logout</a>
             </li>
-            <!--thí điểm-->
 
-            <li class="nav-item d-none d-sm-inline-block">
-                <a class="nav-link" href="/Module-4-FE/pages/restaurant/restaurant.html"
-                >Đăng ký CTV</a>
-            </li>
         </ul>
 
         <ul class="navbar-nav ml-auto">
@@ -65,7 +60,7 @@
                 <div class="navbar-search-block">
                     <form class="form-inline">
                         <div class="input-group input-group-sm">
-                            <input aria-label="Search" class="form-control form-control-navbar" placeholder="Tìm kiếm"
+                            <input aria-label="Search" class="form-control form-control-navbar" placeholder="Tìm kiếm theo tên sản phẩm"
                                    id="search"
                                    type="text">
                             <div class="input-group-append">
@@ -201,6 +196,15 @@
                     data-accordion="false">
 
                     <li class="nav-item">
+                        <a href="/Module-4-FE/pages/restaurant/restaurant.html" class="nav-link">
+                            <i class="nav-icon fas fa-th"></i>
+                            <p>
+                                Quản lý cửa hàng
+                            </p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
                         <a href="/Module-4-FE/pages/food/food.html" class="nav-link">
                             <i class="nav-icon fas fa-th"></i>
                             <p>
@@ -208,38 +212,39 @@
                             </p>
                         </a>
                     </li>
-                    <li class="nav-item">
 
-                        <a href="/Module-4-FE/pages/tag/tag.html" class="nav-link" onclick="getAllTag()">
+                    <li class="nav-item">
+                        <a href="/Module-4-FE/pages/category/category.html" class="nav-link">
+                            <i class="nav-icon fas fa-th"></i>
+                            <p>
+                                Quản lý category
+                            </p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="/Module-4-FE/pages/tag/tag.html" class="nav-link">
                             <i class="nav-icon fas fa-th"></i>
                             <p>
                                 Quản lý Tag
                             </p>
                         </a>
                     </li>
-                    <li class="nav-item">
 
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
-                            <p>
-                                Quản lý Tag
-                            </p>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
-                            <p>
-                                Quản lý người dùng
-                            </p>
-                        </a>
-                    </li>
                     <li class="nav-item">
                         <a href="/Module-4-FE/pages/order/order.html" class="nav-link">
                             <i class="nav-icon fas fa-th"></i>
                             <p>
                                 Quản lý đơn đặt hàng
+                            </p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="/Module-4-FE/pages/user/user.html" class="nav-link">
+                            <i class="nav-icon fas fa-th"></i>
+                            <p>
+                                Quản lý người dùng
                             </p>
                         </a>
                     </li>
@@ -269,7 +274,7 @@
                             <div class="card-header row">
                                 <h3 class="card-title col-11">Danh sách sản phẩm</h3>
                                 <button class="btn btn-primary col-1" data-target="#create-food" data-toggle="modal"
-                                        type="button" onclick="getAllCategory(); getAllTag()">
+                                        type="button" onclick="drawCategory(); drawTag()">
                                     Tạo mới
                                 </button>
                             </div>
@@ -418,12 +423,7 @@
                     <label for="images">Check tag</label>
 
                     <div class="card-body row" id="checkTag">
-
-
                     </div>
-
-
-
 
                 </div>
                 <div class="modal-footer justify-content-between">

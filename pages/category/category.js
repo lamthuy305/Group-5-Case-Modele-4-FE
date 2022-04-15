@@ -1,15 +1,16 @@
 function getAllCategory() {
-    // let q = $('#search').val();
+    let q = $('#search').val();
     $.ajax({
         type: 'GET',
-        url: `http://localhost:8080/categories`,
+        url: `http://localhost:8080/categories?q=${q}`,
         headers: {
             'Authorization': 'Bearer ' + currentUser.token
         },
         success: function (categories) {
-            let content = ``;
-            for (let i = 0; i < categories.length; i++) {
-                content += `  
+            if (categories.length !==0){
+                let content = ``;
+                for (let i = 0; i < categories.length; i++) {
+                    content += `  
         <tr>
         <td>${i + 1}</td>
         <td>${categories[i].name}</td>
@@ -19,8 +20,11 @@ function getAllCategory() {
         <td><button class="btn btn-danger" data-target="#delete-category" data-toggle="modal"
                                         type="button" onclick="showDeleteCategory(${categories[i].id})"><i class="fa fa-trash"></i></button></td>
         </tr>`
+                }
+                $('#tableCategory').html(content);
+            }else {
+                location.href = '/Module-4-FE/pages/category/category-error-404.html'
             }
-            $('#tableCategory').html(content);
         }
     })
     event.preventDefault();

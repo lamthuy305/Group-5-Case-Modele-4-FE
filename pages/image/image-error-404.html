@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Quản lý giỏ hàng</title>
+    <title>Quản lý ảnh   sản phẩm</title>
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback"
           rel="stylesheet">
@@ -40,7 +40,7 @@
                 <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a class="nav-link" href="../../index.html">Home</a>
+                <a class="nav-link" href="../../views/index.html">Home</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
                 <a class="nav-link" href="#">Contact</a>
@@ -258,7 +258,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Quản lý giỏ hàng</h1>
+                        <h1>Ảnh sản phẩm</h1>
                     </div>
                 </div>
             </div>
@@ -267,44 +267,45 @@
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-header row">
-                                <h3 class="card-title col-11">Giỏ hàng</h3>
-                            </div>
-                            <!-- /.card-header -->
-                            <div class="card-body">
-                                <table class="table table-bordered table-hover">
-                                    <thead>
-                                    <tr>
-                                        <th style="text-align: center">#</th>
-                                        <th style="text-align: center">Mã đơn hàng</th>
-                                        <th style="text-align: center">Tên món ăn</th>
-                                        <th style="text-align: center">Số lượng</th>
-                                        <th colspan="2" style="text-align: center">Thao tác</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody id="tableCart">
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div id="displayPage"></div>
-                            <!-- /.card-body -->
-                        </div>
-                        <!-- /.card -->
-
-                    </div>
-                    <!-- /.col -->
+                <div class="col-md-12 text-center pt-5 pb-5">
+                    <img class="img-fluid" src="../../img/404.png" alt="404">
+                    <h1 class="mt-2 mb-2">Không tìm thấy</h1>
+                    <p>Uh-oh! Nội dung bạn tìm kiếm <br>không tồn tại. Mời bạn thử lại.</p>
+                    <a class="btn btn-primary btn-lg" href="/Module-4-FE/pages/food/food.html">Quay lại</a>
                 </div>
-                <!-- /.row -->
             </div>
             <!-- /.container-fluid -->
         </section>
         <!-- /.content -->
     </div>
 
-    <div class="modal fade" id="delete-cart">
+    <div class="modal fade" id="create-food">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Thêm ảnh cho sản phẩm</h4>
+                    <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="images">Ảnh sản phẩm thực tế</label>
+                        <input class="form-control" id="images" type="file" multiple="multiple">
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button class="btn btn-secondary" data-dismiss="modal" type="button">Đóng</button>
+                    <button class="btn btn-primary" onclick="createNewImage()" type="button" aria-label="Close"
+                            class="close" data-dismiss="modal">Tạo mới
+                    </button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <div class="modal fade" id="delete-image">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -367,6 +368,6 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="../../dist/js/pages/dashboard.js"></script>
 <script src="../../notification.js"></script>
-<script src="cart.js"></script>
+<script src="image.js"></script>
 </body>
 </html>
