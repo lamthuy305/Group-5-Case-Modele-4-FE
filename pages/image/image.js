@@ -1,5 +1,35 @@
 let idFood = new URL(location.href).searchParams.get("id");
 
+function getAllImage(idFood) {
+    $.ajax({
+        type: 'GET',
+        url: `http://localhost:8080/images?id=${idFood}`,
+        headers: {
+            'Authorization': 'Bearer ' + currentUser.token
+        },
+        success: function (images) {
+            if (images.length !== 0){
+                let content = ``;
+                for (let i = 0; i < images.length; i++) {
+                    content += `  
+            <div class="card col-3" style="width: 18rem">
+                <img src="http://localhost:8080/image/${images[i].name}" class="card-img-top" height="250px">
+                <div class="card-body">
+                    <button class="btn btn-danger" data-target="#delete-image" data-toggle="modal" onclick="formDeleteImage(${images[i].id})"><i class="fa fa-trash"></i></button>
+                </div>
+            </div>`
+                }
+                $('#list-image').html(content);
+            }else {
+                location.href = '/Module-4-FE/pages/image/image-error-404.html'
+
+            }
+        }
+    })
+    event.preventDefault();
+}
+
+
 $(document).ready(function () {
     if (currentUser != null) {
         getAllImage(idFood);

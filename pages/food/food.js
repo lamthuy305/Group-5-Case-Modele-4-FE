@@ -1,6 +1,62 @@
 let idFood = new URL(location.href).searchParams.get("id");
 
+function getAllFood(page) {
+    let q = $('#search').val();
+    $.ajax({
+        type: 'GET',
+        url: `http://localhost:8080/foods?q=${q}&page=${page}`,
+        headers: {
+            'Authorization': 'Bearer ' + currentUser.token
+        },
+        success: function (data) {
+            let content = ``;
+            let foods = data.content;
+            if (foods.length !== 0) {
+                for (let i = 0; i < foods.length; i++) {
+                    content += `  
+        <tr>
+        <td>${i + 1}</td>
+        <td>${foods[i].name}</td>
+            <td><a href="/Module-4-FE/pages/image/image.html?id=${foods[i].id}" ><img src="http://localhost:8080/image/${foods[i].img}" height="140px" width="150px"></a></td>
+        <td>${foods[i].description}</td>
+        <td>${foods[i].category == null ? '' : foods[i].category.name}</td>
+        <td>${foods[i].price}</td>
+        <td>${foods[i].salePrice}</td>
+        <td>${foods[i].serviceFee}</td>
+        <td>${new Date(foods[i].dayCreate).getUTCDate()}/${new Date(foods[i].dayCreate).getUTCMonth() + 1}/${new Date(foods[i].dayCreate).getUTCFullYear()}</td>
+        <td>${new Date(foods[i].dayChange).getUTCDate()}/${new Date(foods[i].dayChange).getUTCMonth() + 1}/${new Date(foods[i].dayChange).getUTCFullYear()}</td>
+        <td><button class="btn btn-primary" data-target="#edit-product" data-toggle="modal"
+                                        type="button" onclick="showEditFood(${foods[i].id})"><i class="fa fa-edit"></i></button></td>
+        <td><button class="btn btn-danger" data-target="#delete-product" data-toggle="modal"
+                                        type="button" onclick="showDeleteProduct(${foods[i].id})"><i class="fa fa-trash"></i></button></td>
+        </tr>`
+                }
+                $('#tableProduct').html(content);
+                $('#displayPage').html(`<button class="btn btn-primary" id="first" onclick="getAllFood(0)" style="margin-right: 10px">1</button><button class="btn btn-primary" id="backup" onclick="getAllFood(${data.pageable.pageNumber}-1)"><</button>
+             <span>Trang </span><span>${data.pageable.pageNumber + 1} / ${data.totalPages}</span>
+                <button class="btn btn-primary" id="next" onclick="getAllFood(${data.pageable.pageNumber}+1)">></button>
+                <button class="btn btn-primary" id="last" onclick="getAllFood(${data.totalPages}-1)">${data.totalPages}</button>`);
+                //điều kiện bỏ nút previous
+                if (data.pageable.pageNumber === 0) {
+                    $("#backup").hide();
+                    $("#first").hide();
+                }
+                //điều kiện bỏ nút next
+                if (data.pageable.pageNumber + 1 === data.totalPages) {
+                    $("#next").hide();
+                    $("#last").hide();
+                }
+            } else {
+                location.href = '/Module-4-FE/pages/food/food-error-404.html'
+            }
+        }
+    })
+    event.preventDefault();
+}
+
+
 function createNewProduct() {
+    let food = new FormData();
     let name = $('#name').val();
     let description = $('#description').val();
     let img = $('#img');
@@ -10,7 +66,18 @@ function createNewProduct() {
     let images = $('#images')[0].files;
     let user = currentUser.id;
     let category = $('#category').val();
-    let food = new FormData();
+
+    let checkbox = document.getElementsByName('tag');
+    let tag = '';
+    for (let i = 0; i < checkbox.length; i++) {
+        if (checkbox[i].checked === true) {
+            tag += checkbox[i].value;
+            if (i !== checkbox.length - 1) {
+                tag += ',';
+            }
+        }
+    }
+
     food.append('name', name);
     food.append('description', description);
     food.append('img', img.prop('files')[0]);
@@ -22,6 +89,8 @@ function createNewProduct() {
     });
     food.append('user', user);
     food.append('category', category);
+    food.append('tags', tag);
+    // food.append('tag', tag)
     $.ajax({
         type: 'POST',
         url: 'http://localhost:8080/foods',
@@ -119,7 +188,6 @@ function editFood(id) {
 }
 
 function showEditFood(id) {
-
     $.ajax({
         type: "GET",
         url: `http://localhost:8080/foods/${id}`,
@@ -127,20 +195,19 @@ function showEditFood(id) {
             'Authorization': 'Bearer ' + currentUser.token
         },
         success: function (food) {
-            let name = $('#editName').val(food.name);
-            let description = $('#editDescription').val(food.description);
+            $('#editName').val(food.name);
+            $('#editDescription').val(food.description);
             $('#imgFood').html(`<img src="http://localhost:8080/image/${food.img}" height="140px" width="150px">`);
-            let price = $('#editPrice').val(food.price);
-            let salePrice = $('#editSalePrice').val(food.salePrice);
-            let serviceFee = $('#editServiceFee').val(food.serviceFee);
+            $('#editPrice').val(food.price);
+            $('#editSalePrice').val(food.salePrice);
+            $('#editServiceFee').val(food.serviceFee);
             $.ajax({
                 type: 'GET',
                 url: 'http://localhost:8080/categories',
                 headers: {
                     'Authorization': 'Bearer ' + currentUser.token
                 },
-                success: function (data) {
-                    categories = data.content;
+                success: function (categories) {
                     let content = '';
                     if (food.category != null) {
                         content = `<option value="${food.category.id}">${food.category.name}</option>`;
@@ -160,8 +227,4 @@ function showEditFood(id) {
 
         }
     })
-}
-
-function logout() {
-    localStorage.removeItem("currentUser")
 }
