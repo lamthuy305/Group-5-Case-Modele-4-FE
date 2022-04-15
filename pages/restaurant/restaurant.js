@@ -23,6 +23,7 @@ function registerCTV() {
         },
         success: function () {
             showSuccessMessage('Đăng ký thành công thành CTV!');
+            location.href="/pages/food/food.html";
         },
         error: function () {
             showErrorMessage('Đăng ký lỗi');
@@ -52,16 +53,16 @@ $(document).ready(function () {
 
         messages: {
             name: {
-                required: "nhập đê",
+                required: "vui lòng nhập tên",
             },
             address: {
-                required: "nhập đê",
+                required: "vui lòng nhập địa chỉ",
             },
             openTime:{
-                required:"nhập đê",
+                required:"vui lòng nhập giờ mở bán",
             },
             closeTime: {
-                required:"nhập đê",
+                required:"vui lòng nhập giờ đóng cửa",
             }
         },
         errorElement: 'span',
