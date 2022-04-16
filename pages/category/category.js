@@ -7,7 +7,7 @@ function getAllCategory() {
             'Authorization': 'Bearer ' + currentUser.token
         },
         success: function (categories) {
-            if (categories.length !==0){
+            if (categories.length !==0 && q !== null){
                 let content = ``;
                 for (let i = 0; i < categories.length; i++) {
                     content += `  
