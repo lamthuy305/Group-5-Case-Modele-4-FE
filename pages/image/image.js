@@ -8,7 +8,7 @@ function getAllImage(idFood) {
             'Authorization': 'Bearer ' + currentUser.token
         },
         success: function (images) {
-            if (images.length !== 0){
+            if (images.length !== 0 ){
                 let content = ``;
                 for (let i = 0; i < images.length; i++) {
                     content += `  

@@ -11,7 +11,7 @@ function getAllFood(page) {
         success: function (data) {
             let content = ``;
             let foods = data.content;
-            if (foods.length !== 0) {
+            if (foods.length !== 0 && q !== null) {
                 for (let i = 0; i < foods.length; i++) {
                     content += `  
         <tr>

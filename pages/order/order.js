@@ -8,7 +8,7 @@ function getAllOrder(page) {
         },
         success: function (data) {
             let orders = data.content;
-            if (orders.length !== 0) {
+            if (orders.length !== 0 &&   q !== null) {
                 let content = ``;
                 for (let i = 0; i < orders.length; i++) {
                     content += `  

@@ -8,7 +8,7 @@ function getAllTag(page) {
         },
         success: function (data) {
             let tags = data.content;
-            if (tags.length !== 0) {
+            if (tags.length !== 0 &&   q !== null) {
                 let content = ``;
                 for (let i = 0; i < tags.length; i++) {
                     content += `  
