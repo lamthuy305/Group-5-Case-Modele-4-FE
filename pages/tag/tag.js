@@ -8,8 +8,18 @@ function getAllTag(page) {
         },
         success: function (data) {
             let tags = data.content;
-            if (tags.length !== 0 &&   q !== null) {
-                let content = ``;
+            let content = ``;
+            if (tags.length === 0 && q !== null) {
+                content = '                <div class="col-md-12 text-center pt-5 pb-5">\n' +
+                    '                    <img class="img-fluid" src="../../img/404.png" alt="404">\n' +
+                    '                    <h1 class="mt-2 mb-2">Không tìm thấy</h1>\n' +
+                    '                    <p>Uh-oh! Nội dung bạn tìm kiếm <br>không tồn tại. Mời bạn thử lại.</p>\n' +
+                    '                    <a class="btn btn-primary btn-lg" href="/Module-4-FE/pages/tag/tag.html">Quay lại</a>\n' +
+                    '                </div>'
+                $('#error-404').html(content)
+                $('#table_tag').hide();
+
+            } else {
                 for (let i = 0; i < tags.length; i++) {
                     content += `  
         <tr>
@@ -38,8 +48,6 @@ function getAllTag(page) {
                     $("#next").hide();
                     $("#last").hide();
                 }
-            }else {
-                location.href = '/Module-4-FE/pages/tag/tag-error-404.html'
             }
         }
     })

@@ -8,8 +8,8 @@ function getAllImage(idFood) {
             'Authorization': 'Bearer ' + currentUser.token
         },
         success: function (images) {
+            let content = ``;
             if (images.length !== 0 ){
-                let content = ``;
                 for (let i = 0; i < images.length; i++) {
                     content += `  
             <div class="card col-3" style="width: 18rem">
@@ -19,11 +19,17 @@ function getAllImage(idFood) {
                 </div>
             </div>`
                 }
-                $('#list-image').html(content);
             }else {
-                location.href = '/Module-4-FE/pages/image/image-error-404.html'
+               content='                <div class="col-md-12 text-center pt-5 pb-5">\n' +
+                   '                    <img class="img-fluid" src="../../img/404.png" alt="404">\n' +
+                   '                    <h1 class="mt-2 mb-2">Không tìm thấy</h1>\n' +
+                   '                    <p>Uh-oh! Nội dung bạn tìm kiếm <br>không tồn tại. Mời bạn thử lại.</p>\n' +
+                   '                    <a class="btn btn-primary btn-lg" href="/Module-4-FE/pages/food/food.html">Quay lại</a>\n' +
+                   '                </div>'
 
             }
+            $('#list-image').html(content);
+
         }
     })
     event.preventDefault();
