@@ -46,41 +46,16 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="home.html">Trang chủ <span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="home.html">Đăng ký <span class="sr-only"></span></a>
+
+                    <li class="nav-item dropdown dropdown-cart" id="id_cart">
                     </li>
-                    <li class="nav-item dropdown dropdown-cart">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-shopping-basket"></i> Giỏ hàng
-                            <span class="badge badge-success">5</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-cart-top p-0 dropdown-menu-right shadow-sm border-0">
-                            <div class="dropdown-cart-top-body border-top p-4">
-                                <p class="mb-2"><i class="icofont-ui-press text-danger food-item"></i> Chicken Tikka
-                                    Sub
-                                    12" (30 cm) x 1 <span class="float-right text-secondary">314.000</span></p>
-                                <p class="mb-2"><i class="icofont-ui-press text-success food-item"></i> Corn & Peas
-                                    Salad x 1 <span class="float-right text-secondary">209.000</span></p>
-                                <p class="mb-2"><i class="icofont-ui-press text-success food-item"></i> Veg Seekh
-                                    Sub 6"
-                                    (15 cm) x 1 <span class="float-right text-secondary">133.000</span></p>
-                                <p class="mb-2"><i class="icofont-ui-press text-danger food-item"></i> Chicken Tikka
-                                    Sub
-                                    12" (30 cm) x 1 <span class="float-right text-secondary">314.000</span></p>
-                                <p class="mb-2"><i class="icofont-ui-press text-danger food-item"></i> Corn & Peas
-                                    Salad
-                                    x 1 <span class="float-right text-secondary">209.000</span></p>
-                            </div>
-                            <div class="dropdown-cart-top-footer border-top p-4">
-                                <p class="mb-0 font-weight-bold text-secondary">Tổng tiền <span
-                                        class="float-right text-dark">499.000</span></p>
-                                <!-- <small class="text-info">Extra charges may apply</small> -->
-                            </div>
-                            <div class="dropdown-cart-top-footer border-top p-2">
-                                <a class="btn btn-success btn-block btn-lg" href="checkout.html"> Thanh toán</a>
-                            </div>
-                        </div>
+                    <li class="nav-item" id="id_restaurant">
+                    </li>
+                    <li class="nav-item" id="name">
+                    </li>
+
+                    <li class="nav-item" id="login_logout">
+                        <a class="nav-link" href="/Module-4-FE/pages/auth/login.html">Đăng nhập<span class="sr-only"></span></a>
                     </li>
                 </ul>
             </div>
@@ -93,7 +68,7 @@
                 <div class="col-lg-8 mx-auto">
                     <div class="homepage-search-title text-center">
                         <h1 class="mb-2 display-4 text-shadow text-white font-weight-normal"><span
-                                class="font-weight-bold">Món ngon dành riêng cho bạn 🇮🇳
+                                class="font-weight-bold">Món ngon dành cho bạn!
                                 </span></h1>
                         <h5 class="mb-5 text-shadow text-white-50 font-weight-normal">Danh sách nhà hàng với nhiều
                             món ngon ưu đãi</h5>
@@ -160,8 +135,8 @@
 <section class="section pt-5 pb-5 text-center bg-white">
     <div class="container">
         <div class="row">
-            <div class="col-sm-12">
-                <h5 class="m-0">Bạn có cửa hàng? <a href="login.html">Gia nhập với chúng tôi cùng cung cấp sản phẩm tốt
+            <div class="col-sm-12" id="check_restaurant">
+                <h5 class="m-0">Bạn có cửa hàng? <a href="/Module-4-FE/pages/restaurant/restaurantCreateForm.html">Gia nhập với chúng tôi cùng cung cấp sản phẩm tốt
                     nhất cho khách hàng</a></h5>
             </div>
         </div>
@@ -289,6 +264,9 @@
 
 <script src="../js/custom.js" type="text/javascript"></script>
 <script src="../js/rocket-loader.min.js"></script>
+<script src="../notification.js"></script>
+
+
 </body>
 
 </html>

@@ -23,7 +23,7 @@ function registerCTV() {
         },
         success: function () {
             showSuccessMessage('Đăng ký thành công thành CTV!');
-            location.href="/pages/food/food.html";
+            location.href="/Module-4-FE/views/home.html";
         },
         error: function () {
             showErrorMessage('Đăng ký lỗi');
