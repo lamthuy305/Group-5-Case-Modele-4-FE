@@ -23,12 +23,12 @@
 
     <link rel="stylesheet" href="../vendor/owl-carousel/owl.carousel.css">
     <link rel="stylesheet" href="../vendor/owl-carousel/owl.theme.css">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="findAllFoodByNameCategoryContaining.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="js/navba-all.js"></script>
     <script src="js/home.js"></script>
-    <script src="js/list-food-max-sale-price.js"></script>
-    <script src="js/listFoodOfCategory.js"></script>
+    <script src="js/cart_form.js"></script>
+    <!--    <script src="js/list-food-max-sale-price.js"></script>-->
+<!--    <script src="js/listFoodOfCategory.js"></script>-->
 
 </head>
 
@@ -54,7 +54,8 @@
                     <li class="nav-item" id="name">
                     </li>
                     <li class="nav-item" id="login_logout">
-                        <a class="nav-link" href="/Module-4-FE/pages/auth/login.html">Đăng nhập<span class="sr-only"></span></a>
+                        <a class="nav-link" href="/Module-4-FE/pages/auth/login.html">Đăng nhập<span
+                                class="sr-only"></span></a>
                     </li>
                 </ul>
             </div>
@@ -86,11 +87,11 @@
                                 <div class="col-lg-7 col-md-7 col-sm-12 form-group">
                                     <input type="text" placeholder="Bạn đang tìm món ăn gì?"
                                            class="form-control form-control-lg" id="search">
-                                    <!-- <a class="locate-me" href="#"><i class="icofont-ui-pointer"></i> Locate Me</a> -->
                                 </div>
                                 <div class="col-lg-2 col-md-2 col-sm-12 form-group">
-                                    <button type="button" onclick="getAllFoodByNameCategoryContaining()"
-                                            class="btn btn-primary btn-block btn-lg btn-gradient">Tìm kiếm</button>
+                                    <button type="button" onclick="findAllFoodByName()"
+                                            class="btn btn-primary btn-block btn-lg btn-gradient">Tìm kiếm
+                                    </button>
                                 </div>
                             </div>
                         </form>
@@ -104,38 +105,52 @@
         </div>
     </section>
 </div>
+<section class="section pt-5 pb-5 products-section" id="id_search">
+
+</section>
+
+
 <section class="section pt-5 pb-5 products-section">
     <div class="container">
         <div class="section-header text-center">
-            <h2>Kết quả tìm kiếm</h2>
-            <p>Những món ngon nhất, nhiều ưu đãi đang được mọi người quan tâm</p>
+            <h2>Đề xuất cho bạn</h2>
+            <p>Những món ngon nhất, nhiều người mua nhất</p>
             <span class="line"></span>
         </div>
         <div class="row">
             <div class="col-md-12">
-                <div class="owl-carousel owl-carousel-four owl-theme" id="allFoodByNameCategoryContaining">
+                <div class="owl-carousel owl-carousel-four owl-theme" id="id_top_buy_food">
 
                 </div>
             </div>
         </div>
     </div>
 </section>
-<section class="section pt-5 pb-5 bg-white becomemember-section border-bottom">
+
+
+<section class="section pt-5 pb-5 products-section">
     <div class="container">
-        <div class="section-header text-center white-text">
-            <h2>Giảm giá nhiều nhất</h2>
+        <div class="section-header text-center">
+            <h2>Giá giảm nhiều nhất</h2>
             <span class="line"></span>
         </div>
-        <div class="row" id="list-max-sale-price-food">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="owl-carousel owl-carousel-four owl-theme" id="id_top_sale_food">
 
+                </div>
+            </div>
         </div>
     </div>
 </section>
+
+
 <section class="section pt-5 pb-5 text-center bg-white">
     <div class="container">
         <div class="row">
             <div class="col-sm-12" id="check_restaurant">
-                <h5 class="m-0">Bạn có cửa hàng? <a href="/Module-4-FE/pages/restaurant/restaurantCreateForm.html">Gia nhập với chúng tôi cùng cung cấp sản phẩm tốt
+                <h5 class="m-0">Bạn có cửa hàng? <a href="/Module-4-FE/pages/restaurant/restaurantCreateForm.html">Gia
+                    nhập với chúng tôi cùng cung cấp sản phẩm tốt
                     nhất cho khách hàng</a></h5>
             </div>
         </div>
@@ -252,6 +267,7 @@
         </small>
     </div>
 </footer>
+
 
 <script src="../vendor/jquery/jquery-3.3.1.slim.min.js" type="text/javascript"></script>
 
