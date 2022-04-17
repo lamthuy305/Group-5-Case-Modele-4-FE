@@ -27,7 +27,7 @@ function login() {
                     },
                     success: function (currentUser) {
                         localStorage.setItem('currentUser', JSON.stringify(currentUser));
-                        location.href = '/Module-4-FE/pages/food/food.html'
+                        location.href = '/Module-4-FE/views/home.html'
                     },
                     error: function () {
                         $("#error").html('Mật khẩu không chính xác')
