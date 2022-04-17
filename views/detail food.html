@@ -27,6 +27,7 @@
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="detailFood.js"></script>
+    <script src="navba-all.js"></script>
 </head>
 
 <body>
@@ -42,37 +43,14 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="home.html">Trang chủ <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="home.html">Đăng ký <span class="sr-only"></span></a>
+                <li class="nav-item dropdown dropdown-cart" id="id_cart">
                 </li>
-                <li class="nav-item dropdown dropdown-cart">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-shopping-basket"></i> Giỏ hàng
-                        <span class="badge badge-success">5</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-cart-top p-0 dropdown-menu-right shadow-sm border-0">
-                        <div class="dropdown-cart-top-body border-top p-4">
-                            <p class="mb-2"><i class="icofont-ui-press text-danger food-item"></i> Chicken Tikka Sub
-                                12" (30 cm) x 1 <span class="float-right text-secondary">314.000</span></p>
-                            <p class="mb-2"><i class="icofont-ui-press text-success food-item"></i> Corn & Peas
-                                Salad x 1 <span class="float-right text-secondary">209.000</span></p>
-                            <p class="mb-2"><i class="icofont-ui-press text-success food-item"></i> Veg Seekh Sub 6"
-                                (15 cm) x 1 <span class="float-right text-secondary">133.000</span></p>
-                            <p class="mb-2"><i class="icofont-ui-press text-danger food-item"></i> Chicken Tikka Sub
-                                12" (30 cm) x 1 <span class="float-right text-secondary">314.000</span></p>
-                            <p class="mb-2"><i class="icofont-ui-press text-danger food-item"></i> Corn & Peas Salad
-                                x 1 <span class="float-right text-secondary">209.000</span></p>
-                        </div>
-                        <div class="dropdown-cart-top-footer border-top p-4">
-                            <p class="mb-0 font-weight-bold text-secondary">Tổng tiền <span
-                                    class="float-right text-dark">499.000</span></p>
-                            <!-- <small class="text-info">Extra charges may apply</small> -->
-                        </div>
-                        <div class="dropdown-cart-top-footer border-top p-2">
-                            <a class="btn btn-success btn-block btn-lg" href="checkout.html"> Thanh toán</a>
-                        </div>
-                    </div>
+                <li class="nav-item" id="id_restaurant">
+                </li>
+                <li class="nav-item" id="name">
+                </li>
+                <li class="nav-item" id="login_logout">
+                    <a class="nav-link" href="/Module-4-FE/pages/auth/login.html">Đăng nhập<span class="sr-only"></span></a>
                 </li>
             </ul>
         </div>
