@@ -1,343 +1,271 @@
-<!--<!doctype html>-->
-<!--<html lang="en">-->
+<!doctype html>
+<html lang="en">
 
-<!--<head>-->
+<head>
 
-<!--    <meta charset="utf-8">-->
-<!--    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
-<!--    <meta name="description" content="Askbootstrap">-->
-<!--    <meta name="author" content="Askbootstrap">-->
-<!--    <title>Osahan Eat - Online Food Ordering Website HTML Template</title>-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Askbootstrap">
+    <meta name="author" content="Askbootstrap">
+    <title>Osahan Eat - Online Food Ordering Website HTML Template</title>
 
-<!--    <link rel="icon" type="image/png" href="../img/favicon.png">-->
+    <link rel="icon" type="image/png" href="../img/favicon.png">
 
-<!--    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">-->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-<!--    <link href="../vendor/fontawesome/css/all.min.css" rel="stylesheet">-->
+    <link href="../vendor/fontawesome/css/all.min.css" rel="stylesheet">
 
-<!--    <link href="../vendor/icofont/icofont.min.css" rel="stylesheet">-->
+    <link href="../vendor/icofont/icofont.min.css" rel="stylesheet">
 
-<!--    <link href="../vendor/select2/css/select2.min.css" rel="stylesheet">-->
+    <link href="../vendor/select2/css/select2.min.css" rel="stylesheet">
 
-<!--    <link href="../css/osahan.css" rel="stylesheet">-->
+    <link href="../css/osahan.css" rel="stylesheet">
 
-<!--    <link rel="stylesheet" href="../vendor/owl-carousel/owl.carousel.css">-->
-<!--    <link rel="stylesheet" href="../vendor/owl-carousel/owl.theme.css">-->
-<!--    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>-->
-<!--    <script src="home.js"></script>-->
-<!--    <script src="listFoodOfCategory.js"></script>-->
-<!--    <script src="findAllFoodByNameCategoryContaining.js"></script>-->
-<!--    <script src="list-food-max-sale-price.js"></script>-->
-<!--    <script src="js/navba-all.js"></script>-->
+    <link rel="stylesheet" href="../vendor/owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="../vendor/owl-carousel/owl.theme.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="home.js"></script>
+    <script src="listFoodOfCategory.js"></script>
+    <script src="findAllFoodByNameCategoryContaining.js"></script>
+    <script src="list-food-max-sale-price.js"></script>
+    <script src="js/navba-all.js"></script>
 
-<!--</head>-->
+</head>
 
-<!--<body>-->
-<!--<div class="homepage-header">-->
-<!--    <div class="overlay"></div>-->
-<!--    <nav class="navbar navbar-expand-lg navbar-dark osahan-nav">-->
-<!--        <div class="container">-->
-<!--            <a class="navbar-brand" href="index.html"><img alt="logo" src="../img/favicon.png"></a>-->
-<!--            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"-->
-<!--                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">-->
-<!--                <span class="navbar-toggler-icon"></span>-->
-<!--            </button>-->
-<!--            <div class="collapse navbar-collapse" id="navbarNavDropdown">-->
-<!--                <ul class="navbar-nav ml-auto">-->
-<!--                    <li class="nav-item active">-->
-<!--                        <a class="nav-link" href="home.html">Trang chủ <span class="sr-only">(current)</span></a>-->
-<!--                    </li>-->
-<!--                    <li class="nav-item dropdown dropdown-cart" id="id_cart">-->
-<!--                    </li>-->
-<!--                    <li class="nav-item" id="id_restaurant">-->
-<!--                    </li>-->
-<!--                    <li class="nav-item" id="name">-->
-<!--                    </li>-->
-<!--                    <li class="nav-item" id="login_logout">-->
-<!--                        <a class="nav-link" href="/Module-4-FE/pages/auth/login.html">Đăng nhập<span class="sr-only"></span></a>-->
-<!--                    </li>-->
-<!--                </ul>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </nav>-->
-<!--    <section class="pt-5 pb-5 homepage-search-block position-relative">-->
-<!--        <div class="banner-overlay"></div>-->
-<!--        <div class="container">-->
-<!--            <div class="row d-flex align-items-center py-lg-4">-->
-<!--                <div class="col-lg-8 mx-auto">-->
-<!--                    <div class="homepage-search-title text-center">-->
-<!--                        <h1 class="mb-2 display-4 text-shadow text-white font-weight-normal"><span-->
-<!--                                class="font-weight-bold">Món ngon dành cho bạn!-->
-<!--                                </span></h1>-->
-<!--                        <h5 class="mb-5 text-shadow text-white-50 font-weight-normal">Danh sách nhà hàng với nhiều-->
-<!--                            món ngon ưu đãi</h5>-->
-<!--                    </div>-->
-<!--                    <div class="homepage-search-form">-->
-<!--                        <form class="form-noborder">-->
-<!--                            <div class="form-row">-->
-<!--                                <div class="col-lg-3 col-md-3 col-sm-12 form-group">-->
-<!--                                    <div class="location-dropdown">-->
-<!--                                        <i class="icofont-location-arrow"></i>-->
-<!--                                        <select class="custom-select form-control-lg">-->
-<!--                                            <option> Ăn trưa</option>-->
-<!--                                        </select>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <div class="col-lg-7 col-md-7 col-sm-12 form-group">-->
-<!--                                    <input type="text" placeholder="Bạn đang tìm món ăn gì?"-->
-<!--                                           class="form-control form-control-lg" id="search">-->
-<!--                                    &lt;!&ndash; <a class="locate-me" href="#"><i class="icofont-ui-pointer"></i> Locate Me</a> &ndash;&gt;-->
-<!--                                </div>-->
-<!--                                <div class="col-lg-2 col-md-2 col-sm-12 form-group">-->
-<!--                                    <button type="button" onclick="getAllFoodByNameCategoryContaining()"-->
-<!--                                            class="btn btn-primary btn-block btn-lg btn-gradient">Tìm kiếm</button>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--<<<<<<< HEAD-->
-<!--                            <div class="item">-->
-<!--                                <div class="osahan-category-item">-->
-<!--                                    <a href="#">-->
-<!--                                        <img class="img-fluid" src="../img/list/2.png" alt="">-->
-<!--                                        <h6>Pizza</h6>-->
-<!--                                        <p>120</p>-->
-<!--                                    </a>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="item">-->
-<!--                                <div class="osahan-category-item">-->
-<!--                                    <a href="#">-->
-<!--                                        <img class="img-fluid" src="../img/list/3.png" alt="">-->
-<!--                                        <h6>Healthy</h6>-->
-<!--                                        <p>130</p>-->
-<!--                                    </a>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="item">-->
-<!--                                <div class="osahan-category-item">-->
-<!--                                    <a href="#">-->
-<!--                                        <img class="img-fluid" src="../img/list/4.png" alt="">-->
-<!--                                        <h6>Vegetarian</h6>-->
-<!--                                        <p>120</p>-->
-<!--                                    </a>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="item">-->
-<!--                                <div class="osahan-category-item">-->
-<!--                                    <a href="#">-->
-<!--                                        <img class="img-fluid" src="../img/list/5.png" alt="">-->
-<!--                                        <h6>Chinese</h6>-->
-<!--                                        <p>111</p>-->
-<!--                                    </a>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="item">-->
-<!--                                <div class="osahan-category-item">-->
-<!--                                    <a href="#">-->
-<!--                                        <img class="img-fluid" src="../img/list/6.png" alt="">-->
-<!--                                        <h6>Hamburgers</h6>-->
-<!--                                        <p>958</p>-->
-<!--                                    </a>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="item">-->
-<!--                                <div class="osahan-category-item">-->
-<!--                                    <a href="#">-->
-<!--                                        <img class="img-fluid" src="../img/list/7.png" alt="">-->
-<!--                                        <h6>Dessert</h6>-->
-<!--                                        <p>56</p>-->
-<!--                                    </a>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="item">-->
-<!--                                <div class="osahan-category-item">-->
-<!--                                    <a href="#">-->
-<!--                                        <img class="img-fluid" src="../img/list/8.png" alt="">-->
-<!--                                        <h6>Chicken</h6>-->
-<!--                                        <p>40</p>-->
-<!--                                    </a>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="item">-->
-<!--                                <div class="osahan-category-item">-->
-<!--                                    <a href="#">-->
-<!--                                        <img class="img-fluid" src="../img/list/9.png" alt="">-->
-<!--                                        <h6> </h6>-->
-<!--                                        <p>156</p>-->
-<!--                                    </a>-->
-<!--                                </div>-->
-<!--                            </div>-->
+<body>
+<div class="homepage-header">
+    <div class="overlay"></div>
+    <nav class="navbar navbar-expand-lg navbar-dark osahan-nav">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><img alt="logo" src="../img/favicon.png"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="home.html">Trang chủ <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item dropdown dropdown-cart" id="id_cart">
+                    </li>
+                    <li class="nav-item" id="id_restaurant">
+                    </li>
+                    <li class="nav-item" id="name">
+                    </li>
+                    <li class="nav-item" id="login_logout">
+                        <a class="nav-link" href="/Module-4-FE/pages/auth/login.html">Đăng nhập<span class="sr-only"></span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section class="pt-5 pb-5 homepage-search-block position-relative">
+        <div class="banner-overlay"></div>
+        <div class="container">
+            <div class="row d-flex align-items-center py-lg-4">
+                <div class="col-lg-8 mx-auto">
+                    <div class="homepage-search-title text-center">
+                        <h1 class="mb-2 display-4 text-shadow text-white font-weight-normal"><span
+                                class="font-weight-bold">Món ngon dành cho bạn!
+                                </span></h1>
+                        <h5 class="mb-5 text-shadow text-white-50 font-weight-normal">Danh sách nhà hàng với nhiều
+                            món ngon ưu đãi</h5>
+                    </div>
+                    <div class="homepage-search-form">
+                        <form class="form-noborder">
+                            <div class="form-row">
+                                <div class="col-lg-3 col-md-3 col-sm-12 form-group">
+                                    <div class="location-dropdown">
+                                        <i class="icofont-location-arrow"></i>
+                                        <select class="custom-select form-control-lg">
+                                            <option> Ăn trưa</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-7 col-md-7 col-sm-12 form-group">
+                                    <input type="text" placeholder="Bạn đang tìm món ăn gì?"
+                                           class="form-control form-control-lg" id="search">
+                                    <!-- <a class="locate-me" href="#"><i class="icofont-ui-pointer"></i> Locate Me</a> -->
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-sm-12 form-group">
+                                    <button type="button" onclick="getAllFoodByNameCategoryContaining()"
+                                            class="btn btn-primary btn-block btn-lg btn-gradient">Tìm kiếm</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <h6 class="mt-4 text-shadow text-white font-weight-normal">Ví dụ. Pizzas, Gà rán,
+                        Nem chua...</h6>
+                    <div class="owl-carousel owl-carousel-category owl-theme" id="list-category">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<section class="section pt-5 pb-5 products-section">
+    <div class="container">
+        <div class="section-header text-center">
+            <h2>Kết quả tìm kiếm</h2>
+            <p>Những món ngon nhất, nhiều ưu đãi đang được mọi người quan tâm</p>
+            <span class="line"></span>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="owl-carousel owl-carousel-four owl-theme" id="allFoodByNameCategoryContaining">
 
-<!--                        </form>-->
-<!--                    </div>-->
-<!--                    <h6 class="mt-4 text-shadow text-white font-weight-normal">Ví dụ. Pizzas, Gà rán,-->
-<!--                        Nem chua...</h6>-->
-<!--                    <div class="owl-carousel owl-carousel-category owl-theme" id="list-category">-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--</div>-->
-<!--<section class="section pt-5 pb-5 products-section">-->
-<!--    <div class="container">-->
-<!--        <div class="section-header text-center">-->
-<!--            <h2>Kết quả tìm kiếm</h2>-->
-<!--            <p>Những món ngon nhất, nhiều ưu đãi đang được mọi người quan tâm</p>-->
-<!--            <span class="line"></span>-->
-<!--        </div>-->
-<!--        <div class="row">-->
-<!--            <div class="col-md-12">-->
-<!--                <div class="owl-carousel owl-carousel-four owl-theme" id="allFoodByNameCategoryContaining">-->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section pt-5 pb-5 bg-white becomemember-section border-bottom">
+    <div class="container">
+        <div class="section-header text-center white-text">
+            <h2>Giảm giá nhiều nhất</h2>
+            <span class="line"></span>
+        </div>
+        <div class="row" id="list-max-sale-price-food">
 
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</section>-->
-<!--<section class="section pt-5 pb-5 bg-white becomemember-section border-bottom">-->
-<!--    <div class="container">-->
-<!--        <div class="section-header text-center white-text">-->
-<!--            <h2>Giảm giá nhiều nhất</h2>-->
-<!--            <span class="line"></span>-->
-<!--        </div>-->
-<!--        <div class="row" id="list-max-sale-price-food">-->
+        </div>
+    </div>
+</section>
+<section class="section pt-5 pb-5 text-center bg-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12" id="check_restaurant">
+                <h5 class="m-0">Bạn có cửa hàng? <a href="/Module-4-FE/pages/restaurant/restaurantCreateForm.html">Gia nhập với chúng tôi cùng cung cấp sản phẩm tốt
+                    nhất cho khách hàng</a></h5>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="footer pt-5 pb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-12 col-sm-12">
+                <h6 class="mb-3">Đăng ký nhận thông tin khi có giảm giá</h6>
+                <form class="newsletter-form mb-1">
+                    <div class="input-group">
+                        <input type="text" placeholder="Email của bạn" class="form-control">
+                        <div class="input-group-append">
+                            <button type="button" class="btn btn-primary">
+                                Đăng ký
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <p><a class="text-info" href="register.html">Đăng ký</a> để nhận<a
+                        href="offers.html"> hàng ngàn ưu đãi khác</a></p>
+                <div class="app">
+                    <p class="mb-2">DOWNLOAD APP</p>
+                    <a href="#">
+                        <img class="img-fluid" src="../img/google.png">
+                    </a>
+                    <a href="#">
+                        <img class="img-fluid" src="../img/apple.png">
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-1 col-sm-6 mobile-none">
+            </div>
+            <div class="col-md-2 col-6 col-sm-4">
+                <h6 class="mb-3">Về chúng tôi</h6>
+                <ul>
+                    <li><a href="#">Thông tin liên hệ</a></li>
+                    <li><a href="#">Văn hóa doanh nghiệp</a></li>
+                    <li><a href="#">Tầm nhìn - Sứ mệnh</a></li>
+                    <li><a href="#">Tuyển dụng</a></li>
+                </ul>
+            </div>
+            <div class="col-md-2 col-6 col-sm-4">
+                <h6 class="mb-3">Dành cho cửa hàng</h6>
+                <ul>
+                    <li><a href="#">Hỗ trợ kỹ thuật</a></li>
+                    <li><a href="#">Hỗ trợ bán hàng</a></li>
+                    <li><a href="#">Góp ý</a></li>
+                    <li><a href="#">Khiếu nại</a></li>
+                </ul>
+            </div>
+            <div class="col-md-2 m-none col-4 col-sm-4">
+                <h6 class="mb-3">Khách hàng</h6>
+                <ul>
+                    <li><a href="#">Bảo vệ quyền lợi người tiêu dùng</a></li>
+                    <li><a href="#">Chăm sóc khách hàng</a></li>
+                    <li><a href="#">Khiếu nại</a></li>
+                    <li><a href="#">Góp ý</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="footer-bottom-search pt-5 pb-5 bg-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <p class="text-black">Từ khóa phổ biến</p>
+                <div class="search-links">
+                    <a href="#">Gà rán</a> | <a href="#">Nem chua rán</a> | <a href="#">Pizza</a> | <a
+                        href="#">Highland</a> | <a href="#">Starbuck</a> | <a href="#">Bánh bèo</a> | <a
+                        href="#">Tôm alaska</a> | <a href="#">Tôm hoàng đế</a> | <a href="#">Gà rán</a> | <a href="#">Nem
+                    chua rán</a> | <a href="#">Pizza</a> | <a
+                        href="#">Highland</a> | <a href="#">Starbuck</a> | <a href="#">Bánh bèo</a> | <a
+                        href="#">Tôm alaska</a> | <a href="#">Tôm hoàng đế</a> |<a href="#">Gà rán</a> | <a href="#">Nem
+                    chua rán</a> | <a href="#">Pizza</a> | <a
+                        href="#">Highland</a> | <a href="#">Starbuck</a> | <a href="#">Bánh bèo</a> | <a
+                        href="#">Tôm alaska</a> | <a href="#">Tôm hoàng đế</a> |<a href="#">Gà rán</a> | <a href="#">Nem
+                    chua rán</a> | <a href="#">Pizza</a> | <a
+                        href="#">Highland</a> | <a href="#">Starbuck</a> | <a href="#">Bánh bèo</a> | <a
+                        href="#">Tôm alaska</a> | <a href="#">Tôm hoàng đế</a> |<a href="#">Gà rán</a> | <a href="#">Nem
+                    chua rán</a> | <a href="#">Pizza</a> | <a
+                        href="#">Highland</a> | <a href="#">Starbuck</a> | <a href="#">Bánh bèo</a> | <a
+                        href="#">Tôm alaska</a> | <a href="#">Tôm hoàng đế</a> |<a href="#">Gà rán</a> | <a href="#">Nem
+                    chua rán</a> | <a href="#">Pizza</a> | <a
+                        href="#">Highland</a> | <a href="#">Starbuck</a> | <a href="#">Bánh bèo</a> | <a
+                        href="#">Tôm alaska</a> | <a href="#">Tôm hoàng đế</a>
+                </div>
+                <p class="mt-4 text-black">Danh mục món ăn</p>
+                <div class="search-links">
+                    <a href="#">Fast Food</a> | <a href="#">Chinese</a> | <a href="#">Street Food</a> | <a
+                        href="#">Continental</a> | <a href="#">Mithai</a> | <a href="#">Cafe</a> | <a href="#">South
+                    Indian</a> | <a href="#">Punjabi Food</a> | <a href="#">Fast Food</a> | <a
+                        href="#">Chinese</a> | <a href="#">Street Food</a> | <a href="#">Continental</a> | <a
+                        href="#">Mithai</a> | <a href="#">Cafe</a> | <a href="#">South Indian</a> | <a
+                        href="#">Punjabi Food</a><a href="#">Fast Food</a> | <a href="#">Chinese</a> | <a
+                        href="#">Street Food</a> | <a href="#">Continental</a> | <a href="#">Mithai</a> | <a
+                        href="#">Cafe</a> | <a href="#">South Indian</a> | <a href="#">Punjabi Food</a> | <a
+                        href="#">Fast Food</a> | <a href="#">Chinese</a> | <a href="#">Street Food</a> | <a
+                        href="#">Continental</a> | <a href="#">Mithai</a> | <a href="#">Cafe</a> | <a href="#">South
+                    Indian</a> | <a href="#">Punjabi Food</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer class="pt-4 pb-4 text-center">
+    <div class="container">
+        <p class="mt-0 mb-0">© Copyright 2020 thaotrinhminh@gmail.com. All Rights Reserved</p>
+        <small class="mt-0 mb-0"> Made with <i class="fas fa-heart heart-icon text-danger"></i> by
+            <a class="text-danger" target="_blank"
+               href="http://thaotrinh.info">thaotrinh.info</a>
+        </small>
+    </div>
+</footer>
 
-<!--        </div>-->
-<!--    </div>-->
-<!--</section>-->
-<!--<section class="section pt-5 pb-5 text-center bg-white">-->
-<!--    <div class="container">-->
-<!--        <div class="row">-->
-<!--            <div class="col-sm-12" id="check_restaurant">-->
-<!--                <h5 class="m-0">Bạn có cửa hàng? <a href="/Module-4-FE/pages/restaurant/restaurantCreateForm.html">Gia nhập với chúng tôi cùng cung cấp sản phẩm tốt-->
-<!--                    nhất cho khách hàng</a></h5>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</section>-->
-<!--<section class="footer pt-5 pb-5">-->
-<!--    <div class="container">-->
-<!--        <div class="row">-->
-<!--            <div class="col-md-4 col-12 col-sm-12">-->
-<!--                <h6 class="mb-3">Đăng ký nhận thông tin khi có giảm giá</h6>-->
-<!--                <form class="newsletter-form mb-1">-->
-<!--                    <div class="input-group">-->
-<!--                        <input type="text" placeholder="Email của bạn" class="form-control">-->
-<!--                        <div class="input-group-append">-->
-<!--                            <button type="button" class="btn btn-primary">-->
-<!--                                Đăng ký-->
-<!--                            </button>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </form>-->
-<!--                <p><a class="text-info" href="register.html">Đăng ký</a> để nhận<a-->
-<!--                        href="offers.html"> hàng ngàn ưu đãi khác</a></p>-->
-<!--                <div class="app">-->
-<!--                    <p class="mb-2">DOWNLOAD APP</p>-->
-<!--                    <a href="#">-->
-<!--                        <img class="img-fluid" src="../img/google.png">-->
-<!--                    </a>-->
-<!--                    <a href="#">-->
-<!--                        <img class="img-fluid" src="../img/apple.png">-->
-<!--                    </a>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="col-md-1 col-sm-6 mobile-none">-->
-<!--            </div>-->
-<!--            <div class="col-md-2 col-6 col-sm-4">-->
-<!--                <h6 class="mb-3">Về chúng tôi</h6>-->
-<!--                <ul>-->
-<!--                    <li><a href="#">Thông tin liên hệ</a></li>-->
-<!--                    <li><a href="#">Văn hóa doanh nghiệp</a></li>-->
-<!--                    <li><a href="#">Tầm nhìn - Sứ mệnh</a></li>-->
-<!--                    <li><a href="#">Tuyển dụng</a></li>-->
-<!--                </ul>-->
-<!--            </div>-->
-<!--            <div class="col-md-2 col-6 col-sm-4">-->
-<!--                <h6 class="mb-3">Dành cho cửa hàng</h6>-->
-<!--                <ul>-->
-<!--                    <li><a href="#">Hỗ trợ kỹ thuật</a></li>-->
-<!--                    <li><a href="#">Hỗ trợ bán hàng</a></li>-->
-<!--                    <li><a href="#">Góp ý</a></li>-->
-<!--                    <li><a href="#">Khiếu nại</a></li>-->
-<!--                </ul>-->
-<!--            </div>-->
-<!--            <div class="col-md-2 m-none col-4 col-sm-4">-->
-<!--                <h6 class="mb-3">Khách hàng</h6>-->
-<!--                <ul>-->
-<!--                    <li><a href="#">Bảo vệ quyền lợi người tiêu dùng</a></li>-->
-<!--                    <li><a href="#">Chăm sóc khách hàng</a></li>-->
-<!--                    <li><a href="#">Khiếu nại</a></li>-->
-<!--                    <li><a href="#">Góp ý</a></li>-->
-<!--                </ul>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</section>-->
-<!--<section class="footer-bottom-search pt-5 pb-5 bg-white">-->
-<!--    <div class="container">-->
-<!--        <div class="row">-->
-<!--            <div class="col-xl-12">-->
-<!--                <p class="text-black">Từ khóa phổ biến</p>-->
-<!--                <div class="search-links">-->
-<!--                    <a href="#">Gà rán</a> | <a href="#">Nem chua rán</a> | <a href="#">Pizza</a> | <a-->
-<!--                        href="#">Highland</a> | <a href="#">Starbuck</a> | <a href="#">Bánh bèo</a> | <a-->
-<!--                        href="#">Tôm alaska</a> | <a href="#">Tôm hoàng đế</a> | <a href="#">Gà rán</a> | <a href="#">Nem-->
-<!--                    chua rán</a> | <a href="#">Pizza</a> | <a-->
-<!--                        href="#">Highland</a> | <a href="#">Starbuck</a> | <a href="#">Bánh bèo</a> | <a-->
-<!--                        href="#">Tôm alaska</a> | <a href="#">Tôm hoàng đế</a> |<a href="#">Gà rán</a> | <a href="#">Nem-->
-<!--                    chua rán</a> | <a href="#">Pizza</a> | <a-->
-<!--                        href="#">Highland</a> | <a href="#">Starbuck</a> | <a href="#">Bánh bèo</a> | <a-->
-<!--                        href="#">Tôm alaska</a> | <a href="#">Tôm hoàng đế</a> |<a href="#">Gà rán</a> | <a href="#">Nem-->
-<!--                    chua rán</a> | <a href="#">Pizza</a> | <a-->
-<!--                        href="#">Highland</a> | <a href="#">Starbuck</a> | <a href="#">Bánh bèo</a> | <a-->
-<!--                        href="#">Tôm alaska</a> | <a href="#">Tôm hoàng đế</a> |<a href="#">Gà rán</a> | <a href="#">Nem-->
-<!--                    chua rán</a> | <a href="#">Pizza</a> | <a-->
-<!--                        href="#">Highland</a> | <a href="#">Starbuck</a> | <a href="#">Bánh bèo</a> | <a-->
-<!--                        href="#">Tôm alaska</a> | <a href="#">Tôm hoàng đế</a> |<a href="#">Gà rán</a> | <a href="#">Nem-->
-<!--                    chua rán</a> | <a href="#">Pizza</a> | <a-->
-<!--                        href="#">Highland</a> | <a href="#">Starbuck</a> | <a href="#">Bánh bèo</a> | <a-->
-<!--                        href="#">Tôm alaska</a> | <a href="#">Tôm hoàng đế</a>-->
-<!--                </div>-->
-<!--                <p class="mt-4 text-black">Danh mục món ăn</p>-->
-<!--                <div class="search-links">-->
-<!--                    <a href="#">Fast Food</a> | <a href="#">Chinese</a> | <a href="#">Street Food</a> | <a-->
-<!--                        href="#">Continental</a> | <a href="#">Mithai</a> | <a href="#">Cafe</a> | <a href="#">South-->
-<!--                    Indian</a> | <a href="#">Punjabi Food</a> | <a href="#">Fast Food</a> | <a-->
-<!--                        href="#">Chinese</a> | <a href="#">Street Food</a> | <a href="#">Continental</a> | <a-->
-<!--                        href="#">Mithai</a> | <a href="#">Cafe</a> | <a href="#">South Indian</a> | <a-->
-<!--                        href="#">Punjabi Food</a><a href="#">Fast Food</a> | <a href="#">Chinese</a> | <a-->
-<!--                        href="#">Street Food</a> | <a href="#">Continental</a> | <a href="#">Mithai</a> | <a-->
-<!--                        href="#">Cafe</a> | <a href="#">South Indian</a> | <a href="#">Punjabi Food</a> | <a-->
-<!--                        href="#">Fast Food</a> | <a href="#">Chinese</a> | <a href="#">Street Food</a> | <a-->
-<!--                        href="#">Continental</a> | <a href="#">Mithai</a> | <a href="#">Cafe</a> | <a href="#">South-->
-<!--                    Indian</a> | <a href="#">Punjabi Food</a>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</section>-->
-<!--<footer class="pt-4 pb-4 text-center">-->
-<!--    <div class="container">-->
-<!--        <p class="mt-0 mb-0">© Copyright 2020 thaotrinhminh@gmail.com. All Rights Reserved</p>-->
-<!--        <small class="mt-0 mb-0"> Made with <i class="fas fa-heart heart-icon text-danger"></i> by-->
-<!--            <a class="text-danger" target="_blank"-->
-<!--               href="http://thaotrinh.info">thaotrinh.info</a>-->
-<!--        </small>-->
-<!--    </div>-->
-<!--</footer>-->
+<script src="../vendor/jquery/jquery-3.3.1.slim.min.js" type="text/javascript"></script>
 
-<!--<script src="../vendor/jquery/jquery-3.3.1.slim.min.js" type="text/javascript"></script>-->
+<script src="../vendor/bootstrap/js/bootstrap.bundle.min.js" type="text/javascript"></script>
 
-<!--<script src="../vendor/bootstrap/js/bootstrap.bundle.min.js" type="text/javascript"></script>-->
+<script src="../vendor/select2/js/select2.min.js" type="text/javascript"></script>
 
-<!--<script src="../vendor/select2/js/select2.min.js" type="text/javascript"></script>-->
+<script src="../vendor/owl-carousel/owl.carousel.js" type="text/javascript"></script>
 
-<!--<script src="../vendor/owl-carousel/owl.carousel.js" type="text/javascript"></script>-->
-
-<!--<script src="../js/custom.js" type="text/javascript"></script>-->
-<!--<script src="../js/rocket-loader.min.js"></script>-->
-<!--<script src="../notification.js"></script>-->
+<script src="../js/custom.js" type="text/javascript"></script>
+<script src="../js/rocket-loader.min.js"></script>
+<script src="../notification.js"></script>
 
 
-<!--</body>-->
+</body>
 
-<!--</html>-->
+</html>
