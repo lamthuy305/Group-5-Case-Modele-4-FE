@@ -1,6 +1,5 @@
 let currentUser = localStorage.getItem('currentUser');
 currentUser = JSON.parse(currentUser);
-getUserManagement();
 
 function showSuccessMessage(message) {
     $(function () {
@@ -83,28 +82,4 @@ function drawTag() {
         }
     })
 
-}
-
-function getUserManagement() {
-    if (currentUser !== null) {
-        let idUser = currentUser.id;
-        $.ajax({
-            type: 'GET',
-            url: `http://localhost:8080/users/${idUser}`,
-            success: function (user) {
-                let content = '                        <a href="/Module-4-FE/pages/user/user.html" class="nav-link">\n' +
-                    '                            <i class="nav-icon fas fa-th"></i>\n' +
-                    '                            <p>\n' +
-                    '                                Quản lý người dùng\n' +
-                    '                            </p>\n' +
-                    '                        </a>'
-                let roles = user.roles;
-                for (let i = 0; i < roles.length; i++) {
-                    if (roles[i].id === 1) {
-                        $('#user_management').html(content);
-                    }
-                }
-            }
-        });
-    }
 }

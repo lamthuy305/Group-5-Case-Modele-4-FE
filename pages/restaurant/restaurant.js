@@ -21,8 +21,8 @@ function getRestaurant() {
         <td>${restaurant.name}</td>
         <td><img src="http://localhost:8080/image/${restaurant.img}" height="140px" width="150px"></a></td>
         <td>${restaurant.address}</td>
-        <td>${new Date(restaurant.openTime).getUTCDate()}/${new Date(restaurant.openTime).getUTCMonth() + 1}/${new Date(restaurant.openTime).getUTCFullYear()}</td>
-        <td>${new Date(restaurant.closeTime).getUTCDate()}/${new Date(restaurant.closeTime).getUTCMonth() + 1}/${new Date(restaurant.closeTime).getUTCFullYear()}</td>`
+        <td>${restaurant.openTime}</td>
+        <td>${restaurant.closeTime}</td>`
             $('#tableRestaurant').html(content);
         },
     })
