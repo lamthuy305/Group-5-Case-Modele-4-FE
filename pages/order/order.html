@@ -40,7 +40,7 @@
                 <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a class="nav-link" href="../../views/index.html">Home</a>
+                <a class="nav-link" href="/Module-4-FE/views/home.html">Home</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
                 <a class="nav-link" href="#">Contact</a>
@@ -59,7 +59,7 @@
                 <div class="navbar-search-block">
                     <form class="form-inline">
                         <div class="input-group input-group-sm">
-                            <input aria-label="Search" class="form-control form-control-navbar" placeholder="Tìm kiếm"
+                            <input aria-label="Search" class="form-control form-control-navbar" placeholder="Tìm kiếm theo email"
                                    id="search"
                                    type="text">
                             <div class="input-group-append">
@@ -195,6 +195,15 @@
                     data-accordion="false">
 
                     <li class="nav-item">
+                        <a href="/Module-4-FE/pages/restaurant/restaurant.html" class="nav-link">
+                            <i class="nav-icon fas fa-th"></i>
+                            <p>
+                                Quản lý cửa hàng
+                            </p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
                         <a href="/Module-4-FE/pages/food/food.html" class="nav-link">
                             <i class="nav-icon fas fa-th"></i>
                             <p>
@@ -202,8 +211,18 @@
                             </p>
                         </a>
                     </li>
+
                     <li class="nav-item">
-                        <a href="/Module-4-FE/pages/tag/tag.html" class="nav-link" onclick="getCategory()">
+                        <a href="/Module-4-FE/pages/category/category.html" class="nav-link">
+                            <i class="nav-icon fas fa-th"></i>
+                            <p>
+                                Quản lý category
+                            </p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="/Module-4-FE/pages/tag/tag.html" class="nav-link">
                             <i class="nav-icon fas fa-th"></i>
                             <p>
                                 Quản lý Tag
@@ -212,20 +231,15 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
-                            <p>
-                                Quản lý người dùng
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
                         <a href="/Module-4-FE/pages/order/order.html" class="nav-link">
                             <i class="nav-icon fas fa-th"></i>
                             <p>
                                 Quản lý đơn đặt hàng
                             </p>
                         </a>
+                    </li>
+
+                    <li class="nav-item" id="user_management">
                     </li>
 
                 </ul>
@@ -254,8 +268,8 @@
                                 <h3 class="card-title col-11">Danh sách đơn đặt hàng</h3>
                             </div>
                             <!-- /.card-header -->
-                            <div class="card-body">
-                                <table class="table table-bordered table-hover">
+                            <div class="card-body" id="error-404">
+                                <table class="table table-bordered table-hover" id="table_order">
 
                                     <thead>
                                     <tr>
@@ -263,6 +277,7 @@
                                         <th>Người đặt hàng</th>
                                         <th>Email</th>
                                         <th>Thời gian đặt hàng</th>
+                                        <th>Chi tiết đơn hàng</th>
                                         <th></th>
                                     </tr>
                                     </thead>
@@ -270,8 +285,10 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div id="displayPage"></div>
-                            <!-- /.card-body -->
+                            <div class="card-header row">
+                                <h3 class="card-title col-9"></h3>
+                                <div id="displayPage" class="col-3"></div>
+                            </div>
                         </div>
                         <!-- /.card -->
 

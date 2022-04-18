@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Quản lý sản phẩm</title>
+    <title>Quản lý Category</title>
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback"
           rel="stylesheet">
@@ -40,7 +40,7 @@
                 <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a class="nav-link" href="/Module-4-FE/views/home.html">Home</a>
+                <a class="nav-link" href=/Module-4-FE/views/home.html">Home</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
                 <a class="nav-link" href="#">Contact</a>
@@ -49,16 +49,6 @@
                 <a class="nav-link" href="/Module-4-FE/pages/auth/login.html"
                    onclick="logout()">Logout</a>
             </li>
-<<<<<<< HEAD
-            <!--thí điểm-->
-
-            <li class="nav-item d-none d-sm-inline-block">
-                <a class="nav-link" href="/Module-4-FE/pages/restaurant/restaurant.html"
-                >Đăng ký CTV</a>
-            </li>
-=======
-
->>>>>>> 6833075e455de9c9541b171683c3b2e14b4df8fa
         </ul>
 
         <ul class="navbar-nav ml-auto">
@@ -69,11 +59,11 @@
                 <div class="navbar-search-block">
                     <form class="form-inline">
                         <div class="input-group input-group-sm">
-                            <input aria-label="Search" class="form-control form-control-navbar" placeholder="Tìm kiếm theo tên sản phẩm"
-                                   id="search"
-                                   type="text">
+                            <input aria-label="Search" class="form-control form-control-navbar"
+                                   placeholder="Tìm kiếm theo tên category"
+                                   id="search" type="text">
                             <div class="input-group-append">
-                                <button class="btn btn-navbar" type="button" onclick="getAllFood()">
+                                <button class="btn btn-navbar" type="button" onclick="getAllCategory()">
                                     <i class="fas fa-search"></i>
                                 </button>
                                 <button class="btn btn-navbar" data-widget="navbar-search" type="button">
@@ -262,7 +252,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Quản lý món ăn</h1>
+                        <h1>Quản lý Category</h1>
                     </div>
                 </div>
             </div>
@@ -275,43 +265,31 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header row">
-                                <h3 class="card-title col-11">Danh sách sản phẩm</h3>
-                                <button class="btn btn-primary col-1" data-target="#create-food" data-toggle="modal"
-                                        type="button" onclick="drawCategory(); drawTag()">
+                                <h3 class="card-title col-11">Danh mục category</h3>
+                                <button class="btn btn-primary col-1" data-target="#create-category" data-toggle="modal"
+                                        type="button">
                                     Tạo mới
                                 </button>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body" id="error-404">
-                                <table class="table table-bordered table-hover" id="table_Food">
-
+                                <table class="table table-bordered table-hover" id="table_category">
                                     <thead>
                                     <tr>
-                                        <th>#</th>
-                                        <th>Tên sản phẩm</th>
-                                        <th>Ảnh đại diện sản phẩm</th>
-                                        <th>Mô tả sản phẩm</th>
-                                        <th>Danh mục</th>
-                                        <th>Giá sản phẩm</th>
-                                        <th>Giá khuyến mãi(nếu có)</th>
-                                        <th>Giá dịch vụ khác(nếu có)</th>
-                                        <th>Ngày tạo mới</th>
-                                        <th>Ngày thay đổi cuối cùng</th>
-                                        <th colspan="2"></th>
+                                        <th style="text-align: center">#</th>
+                                        <th style="text-align: center">Tên category</th>
+                                        <th style="text-align: center">Ảnh category</th>
+                                        <th colspan="2" style="text-align: center">Thao tác</th>
                                     </tr>
                                     </thead>
-                                    <tbody id="tableProduct">
+                                    <tbody id="tableCategory">
                                     </tbody>
                                 </table>
                             </div>
-
                             <div class="card-header row">
                                 <h3 class="card-title col-9"></h3>
                                 <div id="displayPage" class="col-3"></div>
                             </div>
-
-
-                            <!-- /.card-body -->
                         </div>
                         <!-- /.card -->
 
@@ -325,122 +303,7 @@
         <!-- /.content -->
     </div>
 
-    <div class="modal fade" id="edit-product">
-
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Chỉnh sửa sản phẩm</h4>
-                    <button aria-label="Close" class="close" data-dismiss="modal" type="button">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="name">Tên sản phẩm</label>
-                        <input class="form-control" id="editName" placeholder="Nhập tên sản phẩm" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="description">Mô tả sản phẩm</label>
-                        <input class="form-control" id="editDescription" placeholder="Nhập mô tả sản phẩm" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="img">Ảnh đại diện sản phẩm</label>
-                        <p id="imgFood"></p>
-                        <input class="form-control" id="editImg" type="file">
-                    </div>
-                    <div class="form-group">
-                        <label for="price">Giá sản phẩm</label>
-                        <input class="form-control" id="editPrice" placeholder="Nhập giá sản phẩm" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="price">Giá khuyến mãi(nếu có)</label>
-                        <input class="form-control" id="editSalePrice" placeholder="Nhập giá sản phẩm" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="price">Phí dịch vụ (nếu có)</label>
-                        <input class="form-control" id="editServiceFee" placeholder="Nhập giá sản phẩm" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="category">Category</label>
-                        <select class="form-control" id="editCategory"></select>
-                    </div>
-
-                </div>
-
-                <div class="modal-footer justify-content-between" id="edit-form">
-
-                </div>
-            </div>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-    </div>
-
-
-    <div class="modal fade" id="create-food">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Tạo mới sản phẩm</h4>
-                    <button aria-label="Close" class="close" data-dismiss="modal" type="button">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="name">Tên sản phẩm</label>
-                        <input class="form-control" id="name" placeholder="Nhập tên sản phẩm" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="description">Mô tả sản phẩm</label>
-                        <input class="form-control" id="description" placeholder="Nhập mô tả sản phẩm" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="img">Ảnh đại diện sản phẩm</label>
-                        <input class="form-control" id="img" type="file">
-                    </div>
-                    <div class="form-group">
-                        <label for="price">Giá sản phẩm</label>
-                        <input class="form-control" id="price" placeholder="Nhập giá sản phẩm" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="price">Giá khuyến mãi(nếu có)</label>
-                        <input class="form-control" id="salePrice" placeholder="Nhập giá sản phẩm" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="price">Phí dịch vụ (nếu có)</label>
-                        <input class="form-control" id="serviceFee" placeholder="Nhập giá sản phẩm" type="text">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="images">Ảnh sản phẩm thực tế</label>
-                        <input class="form-control" id="images" type="file" multiple="multiple">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="category">Category</label>
-                        <select class="form-control" id="category"></select>
-                    </div>
-
-                    <label for="images">Check tag</label>
-
-                    <div class="card-body row" id="checkTag">
-                    </div>
-
-                </div>
-                <div class="modal-footer justify-content-between">
-                    <button class="btn btn-secondary" data-dismiss="modal" type="button">Đóng</button>
-                    <button class="btn btn-primary" onclick="createNewProduct()" type="button" aria-label="Close"
-                            class="close" data-dismiss="modal">Tạo mới
-                    </button>
-                </div>
-            </div>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-    </div>
-    <div class="modal fade" id="delete-product">
+    <div class="modal fade" id="delete-cart">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -459,6 +322,89 @@
         </div>
         <!-- /.modal-dialog -->
     </div>
+
+    <div class="modal fade" id="edit-category">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Chỉnh sửa category</h4>
+                    <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="name">Tên category</label>
+                        <input class="form-control" id="editName" placeholder="Nhập tên sản phẩm" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label for="image">Ảnh đại diện category</label>
+                        <p id="imageCategory"></p>
+                        <input class="form-control" id="editImage" type="file">
+                    </div>
+
+                </div>
+                <div class="modal-footer justify-content-between" id="edit-form">
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+
+    <div class="modal fade" id="create-category">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Tạo mới sản phẩm</h4>
+                    <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="name">Tên category</label>
+                        <input class="form-control" id="name" placeholder="Nhập tên sản phẩm" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label for="image">Ảnh đại diện category</label>
+                        <input class="form-control" id="image" type="file">
+                    </div>
+
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button class="btn btn-secondary" data-dismiss="modal" type="button">Đóng</button>
+                    <button class="btn btn-primary" onclick="createNewProduct()" type="button" aria-label="Close"
+                            class="close" data-dismiss="modal">Tạo mới
+                    </button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+    <div class="modal fade" id="delete-category">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Xóa sản phẩm</h4>
+                    <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Bạn có muốn xóa không?</p>
+                </div>
+                <div class="modal-footer justify-content-between" id="delete-category-button">
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
 
     <!-- Main content -->
 </div>
@@ -503,6 +449,6 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="../../dist/js/pages/dashboard.js"></script>
 <script src="../../notification.js"></script>
-<script src="food.js"></script>
+<script src="category.js"></script>
 </body>
 </html>

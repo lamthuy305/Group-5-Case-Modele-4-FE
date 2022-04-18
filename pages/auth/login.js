@@ -1,24 +1,42 @@
 function login() {
     let email = $('#email').val();
     let password = $('#password').val();
-    let user = {
+    let usercheck = {
         email: email,
         password: password
     }
     $.ajax({
         type: 'POST',
-        url: 'http://localhost:8080/login',
-        data: JSON.stringify(user),
+        url: 'http://localhost:8080/users/check',
+        data: JSON.stringify(usercheck),
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
-        success: function (currentUser) {
-            localStorage.setItem('currentUser', JSON.stringify(currentUser));
-            location.href = '/Module-4-FE/pages/food/food.html'
+        success: function (user) {
+            if (user.active === false) {
+                $("#error").html('Tài khoản bị khóa, liên hệ ADMIN để được trợ giúp')
+            } else {
+                $.ajax({
+                    type: 'POST',
+                    url: 'http://localhost:8080/login',
+                    data: JSON.stringify(usercheck),
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    success: function (currentUser) {
+                        localStorage.setItem('currentUser', JSON.stringify(currentUser));
+                        location.href = '/Module-4-FE/views/home.html'
+                    },
+                    error: function () {
+                        $("#error").html('Mật khẩu không chính xác')
+                    }
+                });
+            }
         },
         error: function () {
-            $("#error").html('Tài khoản hoặc mật khẩu không chính xác')
+            $("#error").html('Tài khoản không chính xác')
         }
     });
     event.preventDefault();

@@ -1,5 +1,41 @@
 let idFood = new URL(location.href).searchParams.get("id");
 
+function getAllImage(idFood) {
+    $.ajax({
+        type: 'GET',
+        url: `http://localhost:8080/images?id=${idFood}`,
+        headers: {
+            'Authorization': 'Bearer ' + currentUser.token
+        },
+        success: function (images) {
+            let content = ``;
+            if (images.length !== 0 ){
+                for (let i = 0; i < images.length; i++) {
+                    content += `  
+            <div class="card col-3" style="width: 18rem">
+                <img src="http://localhost:8080/image/${images[i].name}" class="card-img-top" height="250px">
+                <div class="card-body">
+                    <button class="btn btn-danger" data-target="#delete-image" data-toggle="modal" onclick="formDeleteImage(${images[i].id})"><i class="fa fa-trash"></i></button>
+                </div>
+            </div>`
+                }
+            }else {
+               content='                <div class="col-md-12 text-center pt-5 pb-5">\n' +
+                   '                    <img class="img-fluid" src="../../img/404.png" alt="404">\n' +
+                   '                    <h1 class="mt-2 mb-2">Không tìm thấy</h1>\n' +
+                   '                    <p>Uh-oh! Nội dung bạn tìm kiếm <br>không tồn tại. Mời bạn thử lại.</p>\n' +
+                   '                    <a class="btn btn-primary btn-lg" href="/Module-4-FE/pages/food/food.html">Quay lại</a>\n' +
+                   '                </div>'
+
+            }
+            $('#list-image').html(content);
+
+        }
+    })
+    event.preventDefault();
+}
+
+
 $(document).ready(function () {
     if (currentUser != null) {
         getAllImage(idFood);

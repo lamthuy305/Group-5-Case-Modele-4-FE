@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -14,6 +15,9 @@
     <link href="../css/osahan.css" rel="stylesheet">
     <link rel="stylesheet" href="../vendor/owl-carousel/owl.carousel.css">
     <link rel="stylesheet" href="../vendor/owl-carousel/owl.theme.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <script src="js/navba-all.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light osahan-nav shadow-sm">
@@ -28,37 +32,14 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="home.html">Trang chủ <span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="home.html">Đăng ký <span class="sr-only"></span></a>
+                    <li class="nav-item dropdown dropdown-cart" id="id_cart">
                     </li>
-                    <li class="nav-item dropdown dropdown-cart">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-shopping-basket"></i> Giỏ hàng
-                            <span class="badge badge-success">5</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-cart-top p-0 dropdown-menu-right shadow-sm border-0">
-                            <div class="dropdown-cart-top-body border-top p-4">
-                                <p class="mb-2"><i class="icofont-ui-press text-danger food-item"></i> Chicken Tikka Sub
-                                    12" (30 cm) x 1 <span class="float-right text-secondary">314.000</span></p>
-                                <p class="mb-2"><i class="icofont-ui-press text-success food-item"></i> Corn & Peas
-                                    Salad x 1 <span class="float-right text-secondary">209.000</span></p>
-                                <p class="mb-2"><i class="icofont-ui-press text-success food-item"></i> Veg Seekh Sub 6"
-                                    (15 cm) x 1 <span class="float-right text-secondary">133.000</span></p>
-                                <p class="mb-2"><i class="icofont-ui-press text-danger food-item"></i> Chicken Tikka Sub
-                                    12" (30 cm) x 1 <span class="float-right text-secondary">314.000</span></p>
-                                <p class="mb-2"><i class="icofont-ui-press text-danger food-item"></i> Corn & Peas Salad
-                                    x 1 <span class="float-right text-secondary">209.000</span></p>
-                            </div>
-                            <div class="dropdown-cart-top-footer border-top p-4">
-                                <p class="mb-0 font-weight-bold text-secondary">Tổng tiền <span
-                                        class="float-right text-dark">499.000</span></p>
-                                <!-- <small class="text-info">Extra charges may apply</small> -->
-                            </div>
-                            <div class="dropdown-cart-top-footer border-top p-2">
-                                <a class="btn btn-success btn-block btn-lg" href="checkout.html"> Thanh toán</a>
-                            </div>
-                        </div>
+                    <li class="nav-item" id="id_restaurant">
+                    </li>
+                    <li class="nav-item" id="name">
+                    </li>
+                    <li class="nav-item" id="login_logout">
+                        <a class="nav-link" href="/Module-4-FE/pages/auth/login.html">Đăng nhập<span class="sr-only"></span></a>
                     </li>
                 </ul>
             </div>
@@ -74,9 +55,8 @@
                     <div class="col-md-8">
                         <div class="restaurant-detailed-header-left">
                             <img class="img-fluid mr-3 float-left" alt="osahan" src="../img/1.jpg">
-                            <h2 class="text-white">Bánh Tráng Cuốn Thịt Heo Hoàng Bèo</h2>
-                            <p class="text-white mb-1"><i class="icofont-location-pin"></i> 40 Duy Tân, Quận Cầu Giấy,
-                                Hà Nội </p>
+                            <h2 class="text-white">${restaurant.name}</h2>
+                            <p class="text-white mb-1"><i class="icofont-location-pin"></i>${restaurant.address}</p>
                             <p class="text-white mb-0"><i class="icofont-food-cart"></i> #banhtrang, #thitheo</p>
                         </div>
                     </div>
@@ -722,7 +702,7 @@
                             <!-- <p class="seven-color mb-1 text-right">Extra charges may apply</p> -->
                             <p class="text-black mb-0 text-right">Tiết kiệm 30.000 vnđ</p>
                         </div>
-                        <a href="checkout.html" class="btn btn-success btn-block btn-lg">Checkout <i
+                        <a href="delete/checkout.html" class="btn btn-success btn-block btn-lg">Checkout <i
                                 class="icofont-long-arrow-right"></i></a>
                     </div>
                 </div>
