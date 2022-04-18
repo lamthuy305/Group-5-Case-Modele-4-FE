@@ -64,7 +64,7 @@ function createNewTag() {
             showSuccessMessage('Tạo thành công!');
         },
         error: function () {
-            showErrorMessage('Tạo lỗi');
+            $("#error").html('Mời nhập lại')
         }
     })
 }
@@ -139,4 +139,42 @@ function showEditTag(id) {
         }
     })
 }
+
+$(document).ready(function (){
+    $('#quickFormTag').validate({
+        rules: {
+            name: {
+                required : true
+            },
+            slug: {
+                required: true
+            }
+        },
+
+        messages: {
+            name: {
+                required: "Nhập Tên Tag"
+            },
+            slug: {
+                required: "Nhập slug"
+            }
+        },
+        errorElement: 'span',
+        errorPlacement: function (error, element) {
+            error.addClass('invalid-feedback');
+            element.closest('.form-group').append(error);
+        },
+        highlight: function (element, errorClass, validClass) {
+            $(element).addClass('is-invalid');
+        },
+        unhighlight: function (element, errorClass, validClass) {
+            $(element).removeClass('is-invalid');
+        }
+    });
+    $("#create-submit").click(function () {
+        if ($("#quickFormTag").valid()) {
+            createNewTag();
+        }
+    });
+});
 
