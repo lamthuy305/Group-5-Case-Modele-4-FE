@@ -112,8 +112,6 @@ function getFoodTopSale() {
 }
 
 
-
-
 function findAllFoodByName() {
     let q = $('#search').val();
     $.ajax({
@@ -180,3 +178,5 @@ $(document).ready(() => {
         findAllFoodByName();
     });
 });
+
+
