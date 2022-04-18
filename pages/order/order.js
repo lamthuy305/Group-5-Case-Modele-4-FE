@@ -1,8 +1,10 @@
 function getAllOrder(page) {
-    let q = $('#search').val();
+    let currentUser = localStorage.getItem('currentUser');
+    currentUser = JSON.parse(currentUser);
+    let idUser = currentUser.id;
     $.ajax({
         type: 'GET',
-        url: `http://localhost:8080/orders?q=${q}&page=${page}`,
+        url: `http://localhost:8080/orders/userid/${idUser}?&page=${page}`,
         headers: {
             'Authorization': 'Bearer ' + currentUser.token
         },

@@ -3,8 +3,12 @@ function getBuyFood(id) {
     currentUser = JSON.parse(currentUser);
     let idUser = currentUser.id;
     let cartForm = {
-        user: idUser,
-        food: id,
+        user: {
+            id: idUser
+        },
+        food: {
+            id: id
+        },
     }
     $.ajax({
         type: 'POST',
@@ -17,7 +21,7 @@ function getBuyFood(id) {
         success: function () {
             showSuccessMessage('Thêm thành công vào giỏ hàng')
         },
-        error:function (){
+        error: function () {
             showErrorMessage('Thêm lỗi')
         }
     })

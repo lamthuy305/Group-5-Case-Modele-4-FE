@@ -14,7 +14,7 @@ function getAllFoodOfCategory(page) {
                                     <div class="star position-absolute"><span class="badge badge-success"><i
                                                 class="icofont-star"></i> 4.5 (300+)</span></div>
 
-                                    <a href="detail.html">
+                                    <a href="/Module-4-FE/views/detail%20food%202.html?id=${foods[i].id}">
                                         <img src="http://localhost:8080/image/${foods[i].img}" class="img-fluid item-img">
                                     </a>
                                 </div>

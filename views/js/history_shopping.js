@@ -30,8 +30,12 @@ function getHistoryShopping() {
             url: `http://localhost:8080/orders/user/${idUser}`,
             success: function (data) {
                 let orders = data.content;
+                let size = 5;
+                if (orders.length < size) {
+                    size = orders.length;
+                }
                 let content = '';
-                for (let i = 0; i < orders.length; i++) {
+                for (let i = 0; i < size; i++) {
                     let id_list_food = "list" + i;
                     let id_total_price = "total_price" + i;
                     content += `<div class="bg-white card mb-4 order-list shadow-sm">
@@ -60,7 +64,7 @@ function getHistoryShopping() {
                             let total = 0;
                             let content2 = '';
                             for (let j = 0; j < carts.length; j++) {
-                                content2 += `<p>${carts[j].food.name} : ${carts[j].quantity}</p>`;
+                                content2 += `<p>Tên ${carts[j].food.name} - Số lượng ${carts[j].quantity} - Đơn giá ${carts[j].food.price}</p>`;
                                 $(`#${id_list_food}`).html(content2)
                                 total += (carts[j].food.price - carts[j].food.salePrice + carts[j].food.serviceFee) * carts[j].quantity;
                             }
