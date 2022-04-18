@@ -1,7 +1,5 @@
 <!doctype html>
 <html lang="en">
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script src="listFoodOfCategory.js"></script>
 <head>
 
     <meta charset="utf-8">
@@ -28,6 +26,9 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="js/detailFood.js"></script>
     <script src="js/navba-all.js"></script>
+    <script src="js/cart_form.js"></script>
+    <script src="js/listFoodOfCategory.js"></script>
+    <script src="../notification.js"></script>
 </head>
 
 <body>
@@ -104,291 +105,16 @@
             <div class="col-md-8">
                 <div class="offer-dedicated-body-left">
                     <div class="tab-content" id="pills-tabContent">
-                        <div class="tab-pane fade show active" id="pills-order-online" role="tabpanel"
-                             aria-labelledby="pills-order-online-tab">
-                            <div id="#menu" class="bg-white rounded shadow-sm p-4 mb-4">
-                                <div class="address-map float-right ml-5">
-                                    <div class="mapouter" id="image-food">
-                                        <!-- <div class="gmap_canvas"><iframe width="300" height="170" id="gmap_canvas"
-                                                src="https://maps.google.com/maps?q=university%20of%20san%20francisco&amp;t=&amp;z=9&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
-                                                frameborder="0" scrolling="no" marginheight="0"
-                                                marginwidth="0"></iframe></div> -->
+                        <div class="col-md-12">
+                            <div class="generator-bg rounded shadow-sm mb-4 p-4 osahan-cart-item" id="id_cart_total">
 
-                                    </div>
-                                </div>
-                                <h5 class="mb-4" id="food-name"></h5>
-                                <div id="address2">
-                                </div>
-                                <p class="mb-2 text-black"><i class="icofont-phone-circle text-primary mr-2"></i>
-                                    SĐT: +91 01234-56789, +91 01234-56789</p>
-                                <div id="price">
-
-                                </div>
-                                <p class="mb-2 text-black"><i class="ml-3 icofont-speech-comments"
-                                                              style="color: #9c3328"></i> 91 reviews,100 buy
-                                    <span class="badge badge-success"> OPEN NOW </span>
-                                </p>
-                                <hr class="clearfix">
-                                <p class="text-black mb-0"> Ba mẹ cho bạc cho vàng 😳. KHÔNG BẰNG NHẬN ĐƯỢC KH ĐÁNH
-                                    5⭐️ -😍. Ace LH cho quán để xử lý đơn hàng tại số dt ở dưới 👇</p>
-                                <hr class="clearfix">
-                                <div
-                                        class="owl-carousel owl-theme owl-carousel-five offers-interested-carousel mb-3"
-                                        id="other-image-food">
-                                </div>
-                                <h6 style="color:#34ff8d">---Hình ảnh khác của món ăn---</h6>
-                                <h5 class="mt-4 mb-4">Coupons</h5>
-                                <p class="mb-3">Mã giảm giá của đồ ăn:</p>
-                                <div class="border-btn-main mb-4" id="salePrice">
-                                </div>
-
-                                <h5 class="mt-4 mb-4">Phí dịch vụ</h5>
-                                <p class="mb-3">VAT:</p>
-                                <div class="border-btn-main mb-4" id="vat">
-                                </div>
-                            </div>
-                            <div id="#" class="bg-white rounded shadow-sm p-4 mb-4 explore-outlets">
-                                <h5 class="mb-4">Những món ăn khác của cửa hàng</h5>
-                                <div class="owl-carousel owl-theme owl-carousel-five offers-interested-carousel mb-3">
-
-                                </div>
-                            </div>
-                            <div class="row">
                             </div>
                         </div>
-                        <!-- <div class="tab-pane fade" id="pills-reviews" role="tabpanel"
-                            aria-labelledby="pills-reviews-tab">
-                            <div id="ratings-and-reviews"
-                                class="bg-white rounded shadow-sm p-4 mb-4 clearfix restaurant-detailed-star-rating">
-                                <span class="star-rating float-right">
-                                    <a href="#"><i class="icofont-ui-rating icofont-2x active"></i></a>
-                                    <a href="#"><i class="icofont-ui-rating icofont-2x active"></i></a>
-                                    <a href="#"><i class="icofont-ui-rating icofont-2x active"></i></a>
-                                    <a href="#"><i class="icofont-ui-rating icofont-2x active"></i></a>
-                                    <a href="#"><i class="icofont-ui-rating icofont-2x"></i></a>
-                                </span>
-                                <h5 class="mb-0 pt-1">Rate this Place</h5>
-                            </div>
-                            <div class="bg-white rounded shadow-sm p-4 mb-4 clearfix graph-star-rating">
-                                <h5 class="mb-0 mb-4">Ratings and Reviews</h5>
-                                <div class="graph-star-rating-header">
-                                    <div class="star-rating">
-                                        <a href="#"><i class="icofont-ui-rating active"></i></a>
-                                        <a href="#"><i class="icofont-ui-rating active"></i></a>
-                                        <a href="#"><i class="icofont-ui-rating active"></i></a>
-                                        <a href="#"><i class="icofont-ui-rating active"></i></a>
-                                        <a href="#"><i class="icofont-ui-rating"></i></a> <b
-                                            class="text-black ml-2">334</b>
-                                    </div>
-                                    <p class="text-black mb-4 mt-2">Rated 3.5 out of 5</p>
-                                </div>
-                                <div class="graph-star-rating-body">
-                                    <div class="rating-list">
-                                        <div class="rating-list-left text-black">
-                                            5 Star
-                                        </div>
-                                        <div class="rating-list-center">
-                                            <div class="progress">
-                                                <div style="width: 56%" aria-valuemax="5" aria-valuemin="0"
-                                                    aria-valuenow="5" role="progressbar"
-                                                    class="progress-bar bg-primary">
-                                                    <span class="sr-only">80% Complete (danger)</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="rating-list-right text-black">56%</div>
-                                    </div>
-                                    <div class="rating-list">
-                                        <div class="rating-list-left text-black">
-                                            4 Star
-                                        </div>
-                                        <div class="rating-list-center">
-                                            <div class="progress">
-                                                <div style="width: 23%" aria-valuemax="5" aria-valuemin="0"
-                                                    aria-valuenow="5" role="progressbar"
-                                                    class="progress-bar bg-primary">
-                                                    <span class="sr-only">80% Complete (danger)</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="rating-list-right text-black">23%</div>
-                                    </div>
-                                    <div class="rating-list">
-                                        <div class="rating-list-left text-black">
-                                            3 Star
-                                        </div>
-                                        <div class="rating-list-center">
-                                            <div class="progress">
-                                                <div style="width: 11%" aria-valuemax="5" aria-valuemin="0"
-                                                    aria-valuenow="5" role="progressbar"
-                                                    class="progress-bar bg-primary">
-                                                    <span class="sr-only">80% Complete (danger)</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="rating-list-right text-black">11%</div>
-                                    </div>
-                                    <div class="rating-list">
-                                        <div class="rating-list-left text-black">
-                                            2 Star
-                                        </div>
-                                        <div class="rating-list-center">
-                                            <div class="progress">
-                                                <div style="width: 2%" aria-valuemax="5" aria-valuemin="0"
-                                                    aria-valuenow="5" role="progressbar"
-                                                    class="progress-bar bg-primary">
-                                                    <span class="sr-only">80% Complete (danger)</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="rating-list-right text-black">02%</div>
-                                    </div>
-                                </div>
-                                <div class="graph-star-rating-footer text-center mt-3 mb-3">
-                                    <button type="button" class="btn btn-outline-primary btn-sm">Rate and
-                                        Review</button>
-                                </div>
-                            </div>
-                            <div
-                                class="bg-white rounded shadow-sm p-4 mb-4 restaurant-detailed-ratings-and-reviews">
-                                <a href="#" class="btn btn-outline-primary btn-sm float-right">Top Rated</a>
-                                <h5 class="mb-1">All Ratings and Reviews</h5>
-                                <div class="reviews-members pt-4 pb-4">
-                                    <div class="media">
-                                        <a href="#"><img alt="Generic placeholder image" src="img/user/1.png"
-                                                class="mr-3 rounded-pill"></a>
-                                        <div class="media-body">
-                                            <div class="reviews-members-header">
-                                                <span class="star-rating float-right">
-                                                    <a href="#"><i class="icofont-ui-rating active"></i></a>
-                                                    <a href="#"><i class="icofont-ui-rating active"></i></a>
-                                                    <a href="#"><i class="icofont-ui-rating active"></i></a>
-                                                    <a href="#"><i class="icofont-ui-rating active"></i></a>
-                                                    <a href="#"><i class="icofont-ui-rating"></i></a>
-                                                </span>
-                                                <h6 class="mb-1"><a class="text-black" href="#">Singh Osahan</a>
-                                                </h6>
-                                                <p class="text-gray">Tue, 20 Mar 2020</p>
-                                            </div>
-                                            <div class="reviews-members-body">
-                                                <p>Contrary to popular belief, Lorem Ipsum is not simply random
-                                                    text. It has roots in a piece of classical Latin literature from
-                                                    45 BC, making it over 2000 years old. Richard McClintock, a
-                                                    Latin professor at Hampden-Sydney College in Virginia, looked up
-                                                    one of the more obscure Latin words, consectetur, from a Lorem
-                                                    Ipsum passage, and going through the cites of the word in
-                                                    classical literature, discovered the undoubtable source. Lorem
-                                                    Ipsum comes from sections </p>
-                                            </div>
-                                            <div class="reviews-members-footer">
-                                                <a class="total-like" href="#"><i class="icofont-thumbs-up"></i>
-                                                    856M</a> <a class="total-like" href="#"><i
-                                                        class="icofont-thumbs-down"></i> 158K</a>
-                                                <span class="total-like-user-main ml-2" dir="rtl">
-                                                    <a data-toggle="tooltip" data-placement="top"
-                                                        title="Gurdeep Osahan" href="#"><img
-                                                            alt="Generic placeholder image" src="img/user/5.png"
-                                                            class="total-like-user rounded-pill"></a>
-                                                    <a data-toggle="tooltip" data-placement="top"
-                                                        title="Gurdeep Singh" href="#"><img
-                                                            alt="Generic placeholder image" src="img/user/2.png"
-                                                            class="total-like-user rounded-pill"></a>
-                                                    <a data-toggle="tooltip" data-placement="top"
-                                                        title="Askbootstrap" href="#"><img
-                                                            alt="Generic placeholder image" src="img/user/3.png"
-                                                            class="total-like-user rounded-pill"></a>
-                                                    <a data-toggle="tooltip" data-placement="top" title="Osahan"
-                                                        href="#"><img alt="Generic placeholder image"
-                                                            src="img/user/4.png"
-                                                            class="total-like-user rounded-pill"></a>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="reviews-members pt-4 pb-4">
-                                    <div class="media">
-                                        <a href="#"><img alt="Generic placeholder image" src="img/user/6.png"
-                                                class="mr-3 rounded-pill"></a>
-                                        <div class="media-body">
-                                            <div class="reviews-members-header">
-                                                <span class="star-rating float-right">
-                                                    <a href="#"><i class="icofont-ui-rating active"></i></a>
-                                                    <a href="#"><i class="icofont-ui-rating active"></i></a>
-                                                    <a href="#"><i class="icofont-ui-rating active"></i></a>
-                                                    <a href="#"><i class="icofont-ui-rating active"></i></a>
-                                                    <a href="#"><i class="icofont-ui-rating"></i></a>
-                                                </span>
-                                                <h6 class="mb-1"><a class="text-black" href="#">Gurdeep Singh</a>
-                                                </h6>
-                                                <p class="text-gray">Tue, 20 Mar 2020</p>
-                                            </div>
-                                            <div class="reviews-members-body">
-                                                <p>It is a long established fact that a reader will be distracted by
-                                                    the readable content of a page when looking at its layout. The
-                                                    point of using Lorem Ipsum is that it has a more-or-less normal
-                                                    distribution of letters, as opposed to using 'Content here,
-                                                    content here', making it look like readable English.</p>
-                                            </div>
-                                            <div class="reviews-members-footer">
-                                                <a class="total-like" href="#"><i class="icofont-thumbs-up"></i>
-                                                    88K</a> <a class="total-like" href="#"><i
-                                                        class="icofont-thumbs-down"></i> 1K</a>
-                                                <span class="total-like-user-main ml-2" dir="rtl">
-                                                    <a data-toggle="tooltip" data-placement="top"
-                                                        title="Gurdeep Osahan" href="#"><img
-                                                            alt="Generic placeholder image" src="img/user/5.png"
-                                                            class="total-like-user rounded-pill"></a>
-                                                    <a data-toggle="tooltip" data-placement="top"
-                                                        title="Gurdeep Singh" href="#"><img
-                                                            alt="Generic placeholder image" src="img/user/2.png"
-                                                            class="total-like-user rounded-pill"></a>
-                                                    <a data-toggle="tooltip" data-placement="top"
-                                                        title="Askbootstrap" href="#"><img
-                                                            alt="Generic placeholder image" src="img/user/3.png"
-                                                            class="total-like-user rounded-pill"></a>
-                                                    <a data-toggle="tooltip" data-placement="top" title="Osahan"
-                                                        href="#"><img alt="Generic placeholder image"
-                                                            src="img/user/4.png"
-                                                            class="total-like-user rounded-pill"></a>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr>
-                                <a class="text-center w-100 d-block mt-4 font-weight-bold" href="#">See All
-                                    Reviews</a>
-                            </div>
-                            <div class="bg-white rounded shadow-sm p-4 mb-5 rating-review-select-page">
-                                <h5 class="mb-4">Leave Comment</h5>
-                                <p class="mb-2">Rate the Place</p>
-                                <div class="mb-4">
-                                    <span class="star-rating">
-                                        <a href="#"><i class="icofont-ui-rating icofont-2x"></i></a>
-                                        <a href="#"><i class="icofont-ui-rating icofont-2x"></i></a>
-                                        <a href="#"><i class="icofont-ui-rating icofont-2x"></i></a>
-                                        <a href="#"><i class="icofont-ui-rating icofont-2x"></i></a>
-                                        <a href="#"><i class="icofont-ui-rating icofont-2x"></i></a>
-                                    </span>
-                                </div>
-                                <form>
-                                    <div class="form-group">
-                                        <label>Your Comment</label>
-                                        <textarea class="form-control"></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <button class="btn btn-primary btn-sm" type="button"> Submit Comment
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div> -->
                     </div>
                 </div>
+
             </div>
-            <div class="col-md-4">
+            <div style="float: right" class="col-md-4">
                 <div class="pb-2">
                     <div
                             class="bg-white rounded shadow-sm text-white mb-4 p-4 clearfix restaurant-detailed-earn-pts card-icon-overlap">
@@ -400,114 +126,36 @@
                         </div>
                     </div>
                 </div>
-                <div class="generator-bg rounded shadow-sm mb-4 p-4 osahan-cart-item">
-                    <h5 class="mb-1 text-white">Đặt hàng ngay</h5>
-                    <p class="mb-4 text-white">5 sản phẩm</p>
-                    <div class="bg-white rounded shadow-sm mb-2">
-                        <div class="gold-members p-2 border-bottom">
-                            <p class="text-gray mb-0 float-right ml-2">60.000</p>
-                            <span class="count-number float-right">
-                                    <button class="btn btn-outline-secondary  btn-sm left dec"> <i
-                                            class="icofont-minus"></i> </button>
-                                    <input class="count-number-input" type="text" value="1" readonly="">
-                                    <button class="btn btn-outline-secondary btn-sm right inc"> <i
-                                            class="icofont-plus"></i> </button>
-                                </span>
-                            <div class="media">
-                                <div class="mr-2"><i class="icofont-ui-press text-danger food-item"></i></div>
-                                <div class="media-body">
-                                    <p class="mt-1 mb-0 text-black">Thịt nướng</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="gold-members p-2 border-bottom">
-                            <p class="text-gray mb-0 float-right ml-2">15.000</p>
-                            <span class="count-number float-right">
-                                    <button class="btn btn-outline-secondary  btn-sm left dec"> <i
-                                            class="icofont-minus"></i> </button>
-                                    <input class="count-number-input" type="text" value="1" readonly="">
-                                    <button class="btn btn-outline-secondary btn-sm right inc"> <i
-                                            class="icofont-plus"></i> </button>
-                                </span>
-                            <div class="media">
-                                <div class="mr-2"><i class="icofont-ui-press text-success food-item"></i></div>
-                                <div class="media-body">
-                                    <p class="mt-1 mb-0 text-black">Thêm thịt</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="gold-members p-2 border-bottom">
-                            <p class="text-gray mb-0 float-right ml-2">60.000</p>
-                            <span class="count-number float-right">
-                                    <button class="btn btn-outline-secondary  btn-sm left dec"> <i
-                                            class="icofont-minus"></i> </button>
-                                    <input class="count-number-input" type="text" value="1" readonly="">
-                                    <button class="btn btn-outline-secondary btn-sm right inc"> <i
-                                            class="icofont-plus"></i> </button>
-                                </span>
-                            <div class="media">
-                                <div class="mr-2"><i class="icofont-ui-press text-success food-item"></i></div>
-                                <div class="media-body">
-                                    <p class="mt-1 mb-0 text-black">Thịt luộc</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="gold-members p-2 border-bottom">
-                            <p class="text-gray mb-0 float-right ml-2">20.00000000</p>
-                            <span class="count-number float-right">
-                                    <button class="btn btn-outline-secondary  btn-sm left dec"> <i
-                                            class="icofont-minus"></i> </button>
-                                    <input class="count-number-input" type="text" value="1" readonly="">
-                                    <button class="btn btn-outline-secondary btn-sm right inc"> <i
-                                            class="icofont-plus"></i> </button>
-                                </span>
-                            <div class="media">
-                                <div class="mr-2"><i class="icofont-ui-press text-success food-item"></i></div>
-                                <div class="media-body">
-                                    <p class="mt-1 mb-0 text-black">Bánh đa</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="gold-members p-2 border-bottom">
-                            <p class="text-gray mb-0 float-right ml-2">15.000</p>
-                            <span class="count-number float-right">
-                                    <button class="btn btn-outline-secondary  btn-sm left dec"> <i
-                                            class="icofont-minus"></i> </button>
-                                    <input class="count-number-input" type="text" value="1" readonly="">
-                                    <button class="btn btn-outline-secondary btn-sm right inc"> <i
-                                            class="icofont-plus"></i> </button>
-                                </span>
-                            <div class="media">
-                                <div class="mr-2"><i class="icofont-ui-press text-danger food-item"></i></div>
-                                <div class="media-body">
-                                    <p class="mt-1 mb-0 text-black">Coca chai 330ml</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mb-2 bg-white rounded p-2 clearfix">
-                        <img class="img-fluid float-left" src="../img/wallet-icon.png">
-                        <h6 class="font-weight-bold text-right mb-2">Tổng đơn: <span
-                                class="text-danger">235.000</span> vnđ</h6>
-                        <h6 class="font-weight-bold text-right mb-2">Giảm giá: <span
-                                class="text-danger">30.000</span> vnđ</h6>
-                        <h6 class="font-weight-bold text-right mb-2">Thanh toán: <span
-                                class="text-danger">205.000</span> vnđ</h6>
-                        <!-- <p class="seven-color mb-1 text-right">Extra charges may apply</p> -->
-                        <p class="text-black mb-0 text-right">Tiết kiệm 30.000 vnđ</p>
-                    </div>
-                    <a href="delete/checkout.html" class="btn btn-success btn-block btn-lg">Thanh toán <i
-                            class="icofont-long-arrow-right"></i></a>
+
+                <p class="mb-2 text-black"><i class="icofont-phone-circle text-primary mr-2"></i>-->
+                    SĐT: +91 01234-56789, +91 01234-56789</p>
+                <div id="price">
+
+                </div>
+                <p class="mb-2 text-black"><i class="ml-3 icofont-speech-comments"
+                                              style="color: #9c3328"></i> 91 reviews,100 buy
+                    <span class="badge badge-success"> OPEN NOW </span>
+                </p>
+                <hr class="clearfix">
+                <p class="text-black mb-0"> Ba mẹ cho bạc cho vàng 😳. KHÔNG BẰNG NHẬN ĐƯỢC KH ĐÁNH
+                    5⭐️ -😍. Ace LH cho quán để xử lý đơn hàng tại số dt ở dưới 👇</p>
+                <hr class="clearfix">
+                <div
+                        class="owl-carousel owl-theme owl-carousel-five offers-interested-carousel mb-3"
+                        id="other-image-food">
                 </div>
             </div>
+
         </div>
     </div>
 </section>
 <section class="section pt-5 pb-5 text-center bg-white">
     <div class="container">
         <div class="row">
-            <div class="col-sm-12">
-                <h5 class="m-0">Operate food store or restaurants? <a href="login.html">Work With Us</a></h5>
+            <div class="col-sm-12" id="check_restaurant">
+                <h5 class="m-0">Bạn có cửa hàng? <a href="/Module-4-FE/pages/restaurant/restaurantCreateForm.html">Gia
+                    nhập với chúng tôi cùng cung cấp sản phẩm tốt
+                    nhất cho khách hàng</a></h5>
             </div>
         </div>
     </div>
@@ -628,7 +276,11 @@
 </footer>
 
 
-<script src="../vendor/jquery/jquery-3.3.1.slim.min.js" type="text/javascript"></script>
+<script
+        src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+        crossorigin="anonymous">
+</script>
 <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js" type="text/javascript"></script>
 <script src="../vendor/select2/js/select2.min.js" type="text/javascript"></script>
 <script src="../vendor/owl-carousel/owl.carousel.js" type="text/javascript"></script>

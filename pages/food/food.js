@@ -1,10 +1,13 @@
 let idFood = new URL(location.href).searchParams.get("id");
 
 function getAllFood(page) {
+    let currentUser = localStorage.getItem('currentUser');
+    currentUser = JSON.parse(currentUser);
+    let idUser = currentUser.id;
     let q = $('#search').val();
     $.ajax({
         type: 'GET',
-        url: `http://localhost:8080/foods?q=${q}&page=${page}`,
+        url: `http://localhost:8080/foods/user/${idUser}?q=${q}&page=${page}`,
         headers: {
             'Authorization': 'Bearer ' + currentUser.token
         },
